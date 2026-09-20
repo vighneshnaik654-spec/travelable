@@ -3,1079 +3,512 @@
 const A = (...k) => Object.fromEntries(k.map((x) => [x, true]));
 const d = (o) => ({ demo: true, images: [], ...o });
 export const destinations = [
- d({ id: "mysore-palace", name: "Mysore Palace", city: "Mysuru", state: "Karnataka", region: "South", category: "Heritage", description: "Historic royal palace and major Mysuru landmark.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Mysore_palace%2C_karnataka.jpg"], location:{ latitude:12.3052, longitude:76.6552 }, accessibility:A("wheelchair","ramps","accessibleToilet","accessibleParking","audioAssistance") }),
+  d({ id: "mysore-palace", name: "Mysore Palace", city: "Mysuru", state: "Karnataka", region: "South", category: "Heritage", description: "Historic royal palace and major Mysuru landmark.", location: { latitude: 12.3052, longitude: 76.6552 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "accessibleParking", "audioAssistance") }),
 
-d({ id: "taj-mahal", name: "Taj Mahal", city: "Agra", state: "Uttar Pradesh", region: "North", category: "Historical", description: "Iconic white marble mausoleum and UNESCO World Heritage Site.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/The%20Taj%20Mahal%20.jpg"], location:{ latitude:27.1751, longitude:78.0421 }, accessibility:A("wheelchair","ramps","accessibleParking","assistanceStaff") }),
+d({ id: "taj-mahal", name: "Taj Mahal", city: "Agra", state: "Uttar Pradesh", region: "North", category: "Historical", description: "Iconic white marble mausoleum and UNESCO World Heritage Site.", location: { latitude: 27.1751, longitude: 78.0421 }, accessibility: A("wheelchair", "ramps", "accessibleParking", "assistanceStaff") }),
 
-d({ id: "red-fort", name: "Red Fort", city: "Delhi", state: "Delhi", region: "North", category: "Heritage", description: "Historic Mughal-era fort complex in Old Delhi.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Red-Fort.jpg"], location:{ latitude:28.6562, longitude:77.2410 }, accessibility:A("wheelchair","ramps","accessibleParking","assistanceStaff") }),
+d({ id: "marina-beach", name: "Marina Beach", city: "Chennai", state: "Tamil Nadu", region: "South", category: "Beaches", description: "Long urban beach along the Bay of Bengal.", location: { latitude: 13.0500, longitude: 80.2824 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
 
-d({ id: "qutub-minar", name: "Qutub Minar", city: "Delhi", state: "Delhi", region: "North", category: "Historical", description: "Historic minaret and UNESCO World Heritage Site.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/The%20Qutb%20Minar.jpg"], location:{ latitude:28.5245, longitude:77.1855 }, accessibility:A("wheelchair","accessibleParking","assistanceStaff") }),
+d({ id: "hawa-mahal", name: "Hawa Mahal", city: "Jaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Famous pink sandstone palace facade.", location: { latitude: 26.9239, longitude: 75.8267 }, accessibility: A("accessibleToilet", "assistanceStaff") }),
 
-d({ id: "india-gate", name: "India Gate", city: "Delhi", state: "Delhi", region: "North", category: "Landmark", description: "War memorial and prominent Delhi landmark.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/India%20Gate%20%28Delhi%29.jpg"], location:{ latitude:28.6129, longitude:77.2295 }, accessibility:A("wheelchair","stepFreeAccess","accessibleParking") }),
+d({ id: "alleppey-backwaters", name: "Alleppey Backwaters", city: "Alappuzha", state: "Kerala", region: "South", category: "Nature", description: "Scenic network of canals, lagoons and houseboat routes.", location: { latitude: 9.4981, longitude: 76.3388 }, accessibility: A("wheelchair", "ramps", "assistanceStaff", "stepFreeAccess") }),
 
-d({ id: "golden-temple", name: "Golden Temple", city: "Amritsar", state: "Punjab", region: "North", category: "Religious", description: "Famous Sikh gurdwara surrounded by the Amrit Sarovar.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Golden%20Temple.jpg"], location:{ latitude:31.6200, longitude:74.8765 }, accessibility:A("wheelchair","ramps","assistanceStaff","stepFreeAccess") }),
+d({ id: "red-fort", name: "Red Fort", city: "Delhi", state: "Delhi", region: "North", category: "Heritage", description: "Historic Mughal-era fort complex in Old Delhi.", location: { latitude: 28.6562, longitude: 77.2410 }, accessibility: A("wheelchair", "ramps", "accessibleParking", "assistanceStaff") }),
 
-d({ id: "gateway-of-india", name: "Gateway of India", city: "Mumbai", state: "Maharashtra", region: "West", category: "Landmark", description: "Iconic waterfront monument overlooking Mumbai Harbour.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Gateway%20of%20India%2C%20Mumbai%2C%20India.jpg"], location:{ latitude:18.9220, longitude:72.8347 }, accessibility:A("wheelchair","stepFreeAccess","accessibleParking") }),
+d({ id: "qutub-minar", name: "Qutub Minar", city: "Delhi", state: "Delhi", region: "North", category: "Historical", description: "Historic minaret and UNESCO World Heritage Site.", location: { latitude: 28.5245, longitude: 77.1855 }, accessibility: A("wheelchair", "accessibleParking", "assistanceStaff") }),
 
-d({ id: "marine-drive", name: "Marine Drive", city: "Mumbai", state: "Maharashtra", region: "West", category: "Landmark", description: "Famous curved seaside boulevard along Mumbai's coast.", images:["https://hblimg.mmtcdn.com/content/hubble/img/mumbai/mmt/activities/m_Marine%20Drive_1_l_401_672.jpg"], location:{ latitude:18.9431, longitude:72.8235 }, accessibility:A("wheelchair","stepFreeAccess","accessibleParking") }),
+d({ id: "india-gate", name: "India Gate", city: "Delhi", state: "Delhi", region: "North", category: "Landmark", description: "War memorial and prominent Delhi landmark.", location: { latitude: 28.6129, longitude: 77.2295 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
 
-d({ id: "csmt", name: "Chhatrapati Shivaji Maharaj Terminus", city: "Mumbai", state: "Maharashtra", region: "West", category: "Heritage", description: "Historic railway terminus and UNESCO World Heritage Site.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Chhatrapati%20Shivaji%20Terminus%2C%20Mumbai.jpg"], location:{ latitude:18.9402, longitude:72.8356 }, accessibility:A("wheelchair","ramps","accessibleToilet","assistanceStaff") }),
+d({ id: "golden-temple", name: "Golden Temple", city: "Amritsar", state: "Punjab", region: "North", category: "Religious", description: "Famous Sikh gurdwara surrounded by the Amrit Sarovar.", location: { latitude: 31.6200, longitude: 74.8765 }, accessibility: A("wheelchair", "ramps", "assistanceStaff", "stepFreeAccess") }),
 
-d({ id: "elephanta-caves", name: "Elephanta Caves", city: "Mumbai", state: "Maharashtra", region: "West", category: "Historical", description: "Rock-cut cave temples on Elephanta Island.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Elephanta%20Caves%20in%20Mumbai.jpg"], location:{ latitude:18.9633, longitude:72.9315 }, accessibility:A("assistanceStaff") }),
+d({ id: "jallianwala-bagh", name: "Jallianwala Bagh", city: "Amritsar", state: "Punjab", region: "North", category: "Historical", description: "Historic memorial and public garden in Amritsar.", location: { latitude: 31.6200, longitude: 74.8800 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
 
-d({ id: "ajanta-caves", name: "Ajanta Caves", city: "Aurangabad", state: "Maharashtra", region: "West", category: "Historical", description: "Ancient rock-cut Buddhist caves famous for murals and sculptures.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Ajanta%20Caves.jpg"], location:{ latitude:20.5519, longitude:75.7033 }, accessibility:A("assistanceStaff") }),
+d({ id: "city-palace-udaipur", name: "City Palace", city: "Udaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Large palace complex overlooking Lake Pichola.", location: { latitude: 24.5764, longitude: 73.6835 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "ellora-caves", name: "Ellora Caves", city: "Aurangabad", state: "Maharashtra", region: "West", category: "Historical", description: "Rock-cut caves representing Buddhist, Hindu and Jain traditions.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Ellora%20Caves.jpg"], location:{ latitude:20.0268, longitude:75.1790 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "amber-fort", name: "Amber Fort", city: "Jaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Historic hill fort known for Rajput architecture.", location: { latitude: 26.9855, longitude: 75.8513 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "hampi", name: "Hampi", city: "Hampi", state: "Karnataka", region: "South", category: "Heritage", description: "Vast historic ruins of the Vijayanagara Empire.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Hampi%2C%20India.jpg"], location:{ latitude:15.3350, longitude:76.4600 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "mehrangarh-fort", name: "Mehrangarh Fort", city: "Jodhpur", state: "Rajasthan", region: "West", category: "Heritage", description: "Massive historic fort overlooking the Blue City.", location: { latitude: 26.2971, longitude: 73.0189 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "virupaksha-temple", name: "Virupaksha Temple", city: "Hampi", state: "Karnataka", region: "South", category: "Religious", description: "Historic temple complex in the Hampi heritage area.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Hampi%2C%20India.jpg"], location:{ latitude:15.3350, longitude:76.4597 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "jaisalmer-fort", name: "Jaisalmer Fort", city: "Jaisalmer", state: "Rajasthan", region: "West", category: "Heritage", description: "Living fort rising from the Thar Desert.", location: { latitude: 26.9124, longitude: 70.9126 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "badami-caves", name: "Badami Caves", city: "Badami", state: "Karnataka", region: "South", category: "Historical", description: "Ancient rock-cut cave temples carved into sandstone cliffs.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Badami%20caves.jpg"], location:{ latitude:15.9186, longitude:75.6760 }, accessibility:A("assistanceStaff") }),
+d({ id: "lake-pichola", name: "Lake Pichola", city: "Udaipur", state: "Rajasthan", region: "West", category: "Nature", description: "Scenic artificial lake surrounded by palaces and hills.", location: { latitude: 24.5726, longitude: 73.6800 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "gol-gumbaz", name: "Gol Gumbaz", city: "Vijayapura", state: "Karnataka", region: "South", category: "Heritage", description: "Monumental mausoleum famous for its enormous dome and whispering gallery.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Gol%20Gumbaz.jpg"], location:{ latitude:16.8300, longitude:75.7358 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "ranthambore", name: "Ranthambore National Park", city: "Sawai Madhopur", state: "Rajasthan", region: "West", category: "Wildlife", description: "Popular wildlife reserve known for its tiger population.", location: { latitude: 26.0173, longitude: 76.5026 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "lalbagh", name: "Lalbagh Botanical Garden", city: "Bengaluru", state: "Karnataka", region: "South", category: "Nature", description: "Historic botanical garden known for its diverse plant collections and glasshouse.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Lalbagh%20Bengaluru.jpg"], location:{ latitude:12.9507, longitude:77.5848 }, accessibility:A("wheelchair","ramps","accessibleToilet","accessibleParking") }),
+d({ id: "varanasi-ghats", name: "Varanasi Ghats", city: "Varanasi", state: "Uttar Pradesh", region: "North", category: "Cultural", description: "Historic riverfront ghats along the Ganges.", location: { latitude: 25.3060, longitude: 83.0100 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "nandi-hills", name: "Nandi Hills", city: "Chikkaballapur", state: "Karnataka", region: "South", category: "Nature", description: "Popular hill destination known for sunrise views and scenic landscapes.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Nandi%20Hills%2C%20Bengaluru.jpg"], location:{ latitude:13.3702, longitude:77.6835 }, accessibility:A("assistanceStaff") }),
+d({ id: "sarnath", name: "Sarnath", city: "Varanasi", state: "Uttar Pradesh", region: "North", category: "Historical", description: "Important Buddhist archaeological and pilgrimage site.", location: { latitude: 25.3810, longitude: 83.0210 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
 
-d({ id: "charminar", name: "Charminar", city: "Hyderabad", state: "Telangana", region: "South", category: "Heritage", description: "Historic monument and iconic symbol of Hyderabad.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Charminar%20at%20Hyderabad%20Telangana%20India.jpg"], location:{ latitude:17.3616, longitude:78.4747 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "agra-fort", name: "Agra Fort", city: "Agra", state: "Uttar Pradesh", region: "North", category: "Heritage", description: "Historic red sandstone fort near the Taj Mahal.", location: { latitude: 27.1795, longitude: 78.0211 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "golconda-fort", name: "Golconda Fort", city: "Hyderabad", state: "Telangana", region: "South", category: "Heritage", description: "Historic fortified citadel associated with the Qutb Shahi dynasty.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Golconda%20Fort%20%2C%20Hyderabad.jpg"], location:{ latitude:17.3833, longitude:78.4011 }, accessibility:A("assistanceStaff") }),
+d({ id: "fatehpur-sikri", name: "Fatehpur Sikri", city: "Fatehpur Sikri", state: "Uttar Pradesh", region: "North", category: "Historical", description: "Historic Mughal city built during the reign of Akbar.", location: { latitude: 27.0945, longitude: 77.6679 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "ramoji-film-city", name: "Ramoji Film City", city: "Hyderabad", state: "Telangana", region: "South", category: "Entertainment", description: "Large film studio complex and entertainment destination.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Ramoji%20film%20city.jpg"], location:{ latitude:17.2543, longitude:78.6808 }, accessibility:A("wheelchair","ramps","accessibleToilet","assistanceStaff") }),
+d({ id: "khajuraho", name: "Khajuraho Temples", city: "Khajuraho", state: "Madhya Pradesh", region: "Central", category: "Heritage", description: "Famous group of historic temples with detailed stone carvings.", location: { latitude: 24.8318, longitude: 79.9199 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "meenakshi-amman-temple", name: "Meenakshi Amman Temple", city: "Madurai", state: "Tamil Nadu", region: "South", category: "Religious", description: "Historic temple complex famous for its ornate towers and sculptures.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Meenakshi%20Temple.jpg"], location:{ latitude:9.9195, longitude:78.1193 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "sanchi-stupa", name: "Sanchi Stupa", city: "Sanchi", state: "Madhya Pradesh", region: "Central", category: "Historical", description: "Ancient Buddhist monument and UNESCO World Heritage Site.", location: { latitude: 23.4793, longitude: 77.7397 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "marina-beach", name: "Marina Beach", city: "Chennai", state: "Tamil Nadu", region: "South", category: "Beaches", description: "Long urban beach along the Bay of Bengal.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Marina%20beach%2C%20Chennai.jpg"], location:{ latitude:13.0500, longitude:80.2824 }, accessibility:A("wheelchair","stepFreeAccess","accessibleParking") }),
+d({ id: "kanha-national-park", name: "Kanha National Park", city: "Mandla", state: "Madhya Pradesh", region: "Central", category: "Wildlife", description: "Large wildlife reserve known for forests and wildlife.", location: { latitude: 22.3345, longitude: 80.6115 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "shore-temple", name: "Shore Temple", city: "Mahabalipuram", state: "Tamil Nadu", region: "South", category: "Heritage", description: "Historic stone temple overlooking the Bay of Bengal.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Seashore%20Temple%20at%20Mahabalipuram.jpg"], location:{ latitude:12.6169, longitude:80.1920 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "bandhavgarh", name: "Bandhavgarh National Park", city: "Umaria", state: "Madhya Pradesh", region: "Central", category: "Wildlife", description: "Wildlife reserve with forests, hills and historic ruins.", location: { latitude: 23.7276, longitude: 81.0297 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "kodaikanal", name: "Kodaikanal", city: "Kodaikanal", state: "Tamil Nadu", region: "South", category: "Hill Station", description: "Scenic hill station known for its lake, forests and cool climate.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Kodaikanal%20photos.jpg"], location:{ latitude:10.2381, longitude:77.4892 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "gateway-of-india", name: "Gateway of India", city: "Mumbai", state: "Maharashtra", region: "West", category: "Landmark", description: "Iconic waterfront monument overlooking Mumbai Harbour.", location: { latitude: 18.9220, longitude: 72.8347 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
 
-d({ id: "kanyakumari", name: "Kanyakumari", city: "Kanyakumari", state: "Tamil Nadu", region: "South", category: "Coastal", description: "Southern coastal destination famous for sunrise and sunset views.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Kanyakumari.jpg"], location:{ latitude:8.0883, longitude:77.5385 }, accessibility:A("wheelchair","stepFreeAccess","assistanceStaff") }),
+d({ id: "csmt", name: "Chhatrapati Shivaji Maharaj Terminus", city: "Mumbai", state: "Maharashtra", region: "West", category: "Heritage", description: "Historic railway terminus and UNESCO World Heritage Site.", location: { latitude: 18.9402, longitude: 72.8356 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
 
-d({ id: "ooty", name: "Ooty", city: "Ooty", state: "Tamil Nadu", region: "South", category: "Hill Station", description: "Popular hill station surrounded by tea plantations and mountains.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Ooty%20image.jpg"], location:{ latitude:11.4102, longitude:76.6950 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "elephanta-caves", name: "Elephanta Caves", city: "Mumbai", state: "Maharashtra", region: "West", category: "Historical", description: "Rock-cut cave temples on Elephanta Island.", location: { latitude: 18.9633, longitude: 72.9315 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "munnar", name: "Munnar", city: "Munnar", state: "Kerala", region: "South", category: "Hill Station", description: "Hill destination surrounded by tea plantations and mountain scenery.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/MUNNAR.jpg"], location:{ latitude:10.0889, longitude:77.0595 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "marine-drive", name: "Marine Drive", city: "Mumbai", state: "Maharashtra", region: "West", category: "Landmark", description: "Famous curved seaside boulevard along Mumbai's coast.", location: { latitude: 18.9431, longitude: 72.8235 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
 
-d({ id: "alleppey-backwaters", name: "Alleppey Backwaters", city: "Alappuzha", state: "Kerala", region: "South", category: "Nature", description: "Scenic network of canals, lagoons and houseboat routes.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Alappuzha%20Houseboats.jpg"], location:{ latitude:9.4981, longitude:76.3388 }, accessibility:A("wheelchair","ramps","assistanceStaff","stepFreeAccess") }),
+d({ id: "aga-khan-palace", name: "Aga Khan Palace", city: "Pune", state: "Maharashtra", region: "West", category: "Heritage", description: "Historic palace associated with India's independence movement.", location: { latitude: 18.5524, longitude: 73.9017 }, accessibility: A("wheelchair", "ramps", "accessibleParking", "assistanceStaff") }),
 
-d({ id: "varkala-beach", name: "Varkala Beach", city: "Varkala", state: "Kerala", region: "South", category: "Beaches", description: "Coastal destination known for dramatic cliffs and Arabian Sea views.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Varkala%20Beach%2C%20Kerala.jpg"], location:{ latitude:8.7379, longitude:76.7163 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "ajanta-caves", name: "Ajanta Caves", city: "Aurangabad", state: "Maharashtra", region: "West", category: "Historical", description: "Ancient rock-cut Buddhist caves with murals and sculptures.", location: { latitude: 20.5519, longitude: 75.7033 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "kovalam-beach", name: "Kovalam Beach", city: "Thiruvananthapuram", state: "Kerala", region: "South", category: "Beaches", description: "Popular beach destination near Thiruvananthapuram.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Kovalam%20beach%20Kerala.jpg"], location:{ latitude:8.4004, longitude:76.9787 }, accessibility:A("wheelchair","stepFreeAccess","assistanceStaff") }),
+d({ id: "ellora-caves", name: "Ellora Caves", city: "Aurangabad", state: "Maharashtra", region: "West", category: "Historical", description: "Rock-cut caves representing Buddhist, Hindu and Jain traditions.", location: { latitude: 20.0268, longitude: 75.1790 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "periyar-national-park", name: "Periyar National Park", city: "Thekkady", state: "Kerala", region: "South", category: "Wildlife", description: "Wildlife reserve surrounding scenic Periyar Lake.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Periyar%20Thekkady.jpg"], location:{ latitude:9.4627, longitude:77.2367 }, accessibility:A("assistanceStaff") }),
+d({ id: "hampi", name: "Hampi", city: "Hampi", state: "Karnataka", region: "South", category: "Heritage", description: "Vast historic ruins of the Vijayanagara Empire.", location: { latitude: 15.3350, longitude: 76.4600 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "baga-beach", name: "Baga Beach", city: "North Goa", state: "Goa", region: "West", category: "Beaches", description: "Popular beach destination in North Goa.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Baga%20Beach.jpg"], location:{ latitude:15.5557, longitude:73.7517 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "virupaksha-temple", name: "Virupaksha Temple", city: "Hampi", state: "Karnataka", region: "South", category: "Religious", description: "Historic temple complex in the Hampi heritage area.", location: { latitude: 15.3350, longitude: 76.4597 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "basilica-bom-jesus", name: "Basilica of Bom Jesus", city: "Old Goa", state: "Goa", region: "West", category: "Religious", description: "Historic basilica and major heritage landmark in Old Goa.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Basilica%20of%20Bom%20Jesus.jpg"], location:{ latitude:15.5009, longitude:73.9118 }, accessibility:A("wheelchair","stepFreeAccess","assistanceStaff") }),
+d({ id: "gol-gumbaz", name: "Gol Gumbaz", city: "Vijayapura", state: "Karnataka", region: "South", category: "Heritage", description: "Famous monumental tomb with a large domed structure.", location: { latitude: 16.8302, longitude: 75.7100 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "fort-aguada", name: "Fort Aguada", city: "Candolim", state: "Goa", region: "West", category: "Heritage", description: "Historic Portuguese fort overlooking the Arabian Sea.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/FortAguada%28Goa%29.jpg"], location:{ latitude:15.4920, longitude:73.7730 }, accessibility:A("assistanceStaff") }),
+d({ id: "badami-caves", name: "Badami Caves", city: "Badami", state: "Karnataka", region: "South", category: "Historical", description: "Ancient rock-cut cave temples overlooking Agastya Lake.", location: { latitude: 15.9487, longitude: 75.6820 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "dudhsagar-falls", name: "Dudhsagar Falls", city: "Mollem", state: "Goa", region: "West", category: "Nature", description: "Spectacular waterfall surrounded by forest in the Western Ghats.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/DudhSagar.jpg"], location:{ latitude:15.3144, longitude:74.3144 }, accessibility:A("assistanceStaff") }),
+d({ id: "gokarna-beach", name: "Gokarna Beach", city: "Gokarna", state: "Karnataka", region: "South", category: "Beaches", description: "Popular coastal destination with scenic beaches.", location: { latitude: 14.5500, longitude: 74.3167 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "city-palace-udaipur", name: "City Palace", city: "Udaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Large historic palace complex overlooking Lake Pichola.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/City%20palace%20%28Udaipur%29.jpg"], location:{ latitude:24.5764, longitude:73.6835 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "lalbagh", name: "Lalbagh Botanical Garden", city: "Bengaluru", state: "Karnataka", region: "South", category: "Nature", description: "Large botanical garden with diverse plant collections.", location: { latitude: 12.9507, longitude: 77.5848 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "accessibleParking") }),
 
-d({ id: "amber-fort", name: "Amber Fort", city: "Jaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Historic hill fort known for Rajput architecture.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Amber%20Fort-Jaipur.jpg"], location:{ latitude:26.9855, longitude:75.8513 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "nandi-hills", name: "Nandi Hills", city: "Bengaluru", state: "Karnataka", region: "South", category: "Nature", description: "Hill destination known for sunrise views and scenic landscapes.", location: { latitude: 13.3702, longitude: 77.6835 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "hawa-mahal", name: "Hawa Mahal", city: "Jaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Famous pink sandstone palace facade in Jaipur.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Jaipur-Hawa-Mahal.jpg"], location:{ latitude:26.9239, longitude:75.8267 }, accessibility:A("assistanceStaff") }),
+d({ id: "charminar", name: "Charminar", city: "Hyderabad", state: "Telangana", region: "South", category: "Heritage", description: "Historic monument and iconic symbol of Hyderabad.", location: { latitude: 17.3616, longitude: 78.4747 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "mehrangarh-fort", name: "Mehrangarh Fort", city: "Jodhpur", state: "Rajasthan", region: "West", category: "Heritage", description: "Massive historic fort overlooking the teal City.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Mehrangarh.JPG"], location:{ latitude:26.2971, longitude:73.0189 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "golconda-fort", name: "Golconda Fort", city: "Hyderabad", state: "Telangana", region: "South", category: "Heritage", description: "Historic fort complex with impressive architecture and views.", location: { latitude: 17.3833, longitude: 78.4011 }, accessibility: A("assistanceStaff") }),
 
-d({ id: "jaisalmer-fort", name: "Jaisalmer Fort", city: "Jaisalmer", state: "Rajasthan", region: "West", category: "Heritage", description: "Historic living fort rising from the Thar Desert.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/JaisalmerFort.jpg"], location:{ latitude:26.9124, longitude:70.9126 }, accessibility:A("assistanceStaff") }),
+d({ id: "ramoji-film-city", name: "Ramoji Film City", city: "Hyderabad", state: "Telangana", region: "South", category: "Entertainment", description: "Large film studio complex and entertainment destination.", location: { latitude: 17.2543, longitude: 78.6808 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
 
-d({ id: "lake-pichola", name: "Lake Pichola", city: "Udaipur", state: "Rajasthan", region: "West", category: "Nature", description: "Scenic lake surrounded by palaces, hills and historic buildings.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Pichola.jpg"], location:{ latitude:24.5726, longitude:73.6800 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "meenakshi-temple", name: "Meenakshi Amman Temple", city: "Madurai", state: "Tamil Nadu", region: "South", category: "Religious", description: "Historic temple complex famous for its ornate towers.", location: { latitude: 9.9195, longitude: 78.1193 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "jantar-mantar-jaipur", name: "Jantar Mantar", city: "Jaipur", state: "Rajasthan", region: "West", category: "Historical", description: "Historic astronomical observation complex built in Jaipur.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Jantar%20Mantar%20%28Jaipur%29.jpg"], location:{ latitude:26.9247, longitude:75.8246 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "shore-temple", name: "Shore Temple", city: "Mahabalipuram", state: "Tamil Nadu", region: "South", category: "Heritage", description: "Historic stone temple overlooking the Bay of Bengal.", location: { latitude: 12.6169, longitude: 80.1920 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "ranthambore", name: "Ranthambore National Park", city: "Sawai Madhopur", state: "Rajasthan", region: "West", category: "Wildlife", description: "Popular wildlife reserve known for its tigers and historic fort.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Ranthambore%20national%20park.jpg"], location:{ latitude:26.0173, longitude:76.5026 }, accessibility:A("assistanceStaff") }),
+d({ id: "brihadeeswarar-temple", name: "Brihadeeswarar Temple", city: "Thanjavur", state: "Tamil Nadu", region: "South", category: "Religious", description: "Grand Chola-era temple and UNESCO World Heritage Site.", location: { latitude: 10.7828, longitude: 79.1318 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "agra-fort", name: "Agra Fort", city: "Agra", state: "Uttar Pradesh", region: "North", category: "Heritage", description: "Historic Mughal fort built primarily from red sandstone.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Agra%20fort%20.jpg"], location:{ latitude:27.1795, longitude:78.0211 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "ooty", name: "Ooty", city: "Ooty", state: "Tamil Nadu", region: "South", category: "Hill Station", description: "Popular hill station surrounded by tea plantations and hills.", location: { latitude: 11.4102, longitude: 76.6950 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "sarnath", name: "Sarnath", city: "Varanasi", state: "Uttar Pradesh", region: "North", category: "Historical", description: "Important Buddhist archaeological and pilgrimage site.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Sarnath%20stupa.jpg"], location:{ latitude:25.3810, longitude:83.0210 }, accessibility:A("wheelchair","stepFreeAccess","assistanceStaff") }),
+d({ id: "kodaikanal", name: "Kodaikanal", city: "Kodaikanal", state: "Tamil Nadu", region: "South", category: "Hill Station", description: "Scenic hill station known for its lake and forests.", location: { latitude: 10.2381, longitude: 77.4892 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "varanasi-ghats", name: "Varanasi Ghats", city: "Varanasi", state: "Uttar Pradesh", region: "North", category: "Cultural", description: "Historic riverfront ghats along the Ganges.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%20Ghats.jpg"], location:{ latitude:25.3060, longitude:83.0100 }, accessibility:A("assistanceStaff") }),
+d({ id: "kanyakumari", name: "Kanyakumari", city: "Kanyakumari", state: "Tamil Nadu", region: "South", category: "Coastal", description: "Southern coastal destination famous for sunrise and sunset views.", location: { latitude: 8.0883, longitude: 77.5385 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
 
-d({ id: "khajuraho", name: "Khajuraho Temples", city: "Khajuraho", state: "Madhya Pradesh", region: "Central", category: "Heritage", description: "Famous group of historic temples with detailed stone carvings.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Khajuraho%20Temple%2C%20Khajuraho.jpg"], location:{ latitude:24.8318, longitude:79.9199 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "fort-kochi", name: "Fort Kochi", city: "Kochi", state: "Kerala", region: "South", category: "Heritage", description: "Historic coastal neighbourhood with colonial architecture.", location: { latitude: 9.9658, longitude: 76.2421 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
 
-d({ id: "sanchi-stupa", name: "Sanchi Stupa", city: "Sanchi", state: "Madhya Pradesh", region: "Central", category: "Historical", description: "Ancient Buddhist monument and UNESCO World Heritage Site.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Sanchi%20Stupa.jpg"], location:{ latitude:23.4793, longitude:77.7397 }, accessibility:A("wheelchair","assistanceStaff") }),
+d({ id: "munnar", name: "Munnar", city: "Munnar", state: "Kerala", region: "South", category: "Hill Station", description: "Hill destination surrounded by tea plantations.", location: { latitude: 10.0889, longitude: 77.0595 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({ id: "statue-of-unity", name: "Statue of Unity", city: "Kevadia", state: "Gujarat", region: "West", category: "Landmark", description: "Massive monument and major tourism destination near the Narmada River.", images:["https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Unity.jpg"], location:{ latitude:21.8384, longitude:73.7230 }, accessibility:A("wheelchair","ramps","accessibleToilet","accessibleParking","assistanceStaff") }),
+d({ id: "varkala-beach", name: "Varkala Beach", city: "Varkala", state: "Kerala", region: "South", category: "Beaches", description: "Coastal destination known for cliffs and Arabian Sea views.", location: { latitude: 8.7379, longitude: 76.7163 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "kovalam-beach", name: "Kovalam Beach", city: "Thiruvananthapuram", state: "Kerala", region: "South", category: "Beaches", description: "Popular beach destination near Thiruvananthapuram.", location: { latitude: 8.4004, longitude: 76.9787 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "periyar-national-park", name: "Periyar National Park", city: "Thekkady", state: "Kerala", region: "South", category: "Wildlife", description: "Wildlife reserve around Periyar Lake.", location: { latitude: 9.4627, longitude: 77.2367 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "baga-beach", name: "Baga Beach", city: "North Goa", state: "Goa", region: "West", category: "Beaches", description: "Popular beach destination in North Goa.", location: { latitude: 15.5557, longitude: 73.7517 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "basilica-bom-jesus", name: "Basilica of Bom Jesus", city: "Old Goa", state: "Goa", region: "West", category: "Religious", description: "Historic basilica and major heritage landmark.", location: { latitude: 15.5009, longitude: 73.9118 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "fort-aguada", name: "Fort Aguada", city: "Candolim", state: "Goa", region: "West", category: "Heritage", description: "Historic Portuguese fort overlooking the Arabian Sea.", location: { latitude: 15.4920, longitude: 73.7730 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "dudhsagar-falls", name: "Dudhsagar Falls", city: "Mollem", state: "Goa", region: "West", category: "Nature", description: "Spectacular waterfall surrounded by forest.", location: { latitude: 15.3144, longitude: 74.3144 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "konark-sun-temple", name: "Konark Sun Temple", city: "Konark", state: "Odisha", region: "East", category: "Heritage", description: "Historic temple famous for its monumental stone chariot design.", location: { latitude: 19.8876, longitude: 86.0945 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "jagannath-temple", name: "Jagannath Temple", city: "Puri", state: "Odisha", region: "East", category: "Religious", description: "Major Hindu pilgrimage temple in Puri.", location: { latitude: 19.8049, longitude: 85.8179 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "chilika-lake", name: "Chilika Lake", city: "Puri", state: "Odisha", region: "East", category: "Nature", description: "Large coastal lagoon known for birds and boating.", location: { latitude: 19.7000, longitude: 85.3200 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "lingaraj-temple", name: "Lingaraj Temple", city: "Bhubaneswar", state: "Odisha", region: "East", category: "Religious", description: "Historic temple and major landmark of Bhubaneswar.", location: { latitude: 20.2380, longitude: 85.8330 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "victoria-memorial", name: "Victoria Memorial", city: "Kolkata", state: "West Bengal", region: "East", category: "Heritage", description: "Grand marble memorial and museum in Kolkata.", location: { latitude: 22.5448, longitude: 88.3426 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "accessibleParking") }),
+
+d({ id: "howrah-bridge", name: "Howrah Bridge", city: "Kolkata", state: "West Bengal", region: "East", category: "Landmark", description: "Iconic cantilever bridge over the Hooghly River.", location: { latitude: 22.5958, longitude: 88.2636 }, accessibility: A("stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "darjeeling-railway", name: "Darjeeling Himalayan Railway", city: "Darjeeling", state: "West Bengal", region: "East", category: "Transport", description: "Historic mountain railway popularly known as the Toy Train.", location: { latitude: 27.0410, longitude: 88.2663 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "tiger-hill", name: "Tiger Hill", city: "Darjeeling", state: "West Bengal", region: "East", category: "Nature", description: "Popular viewpoint famous for sunrise over the Himalayas.", location: { latitude: 27.0000, longitude: 88.2800 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "sundarbans", name: "Sundarbans National Park", city: "South 24 Parganas", state: "West Bengal", region: "East", category: "Wildlife", description: "Mangrove forest and wildlife destination.", location: { latitude: 21.9497, longitude: 88.8953 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "kaziranga", name: "Kaziranga National Park", city: "Golaghat", state: "Assam", region: "Northeast", category: "Wildlife", description: "World-famous wildlife reserve known for one-horned rhinoceroses.", location: { latitude: 26.5775, longitude: 93.1711 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "kamakhya-temple", name: "Kamakhya Temple", city: "Guwahati", state: "Assam", region: "Northeast", category: "Religious", description: "Historic temple situated on Nilachal Hill.", location: { latitude: 26.1664, longitude: 91.7052 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "majuli", name: "Majuli Island", city: "Majuli", state: "Assam", region: "Northeast", category: "Cultural", description: "River island known for Assamese culture and traditions.", location: { latitude: 27.0000, longitude: 94.2200 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "shillong", name: "Shillong", city: "Shillong", state: "Meghalaya", region: "Northeast", category: "Hill Station", description: "Scenic hill city surrounded by green landscapes.", location: { latitude: 25.5788, longitude: 91.8933 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "cherrapunji", name: "Cherrapunji", city: "Sohra", state: "Meghalaya", region: "Northeast", category: "Nature", description: "Mountain destination famous for waterfalls and heavy rainfall.", location: { latitude: 25.2702, longitude: 91.7314 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "living-root-bridges", name: "Living Root Bridges", city: "Cherrapunji", state: "Meghalaya", region: "Northeast", category: "Nature", description: "Unique bridges formed from living tree roots.", location: { latitude: 25.2400, longitude: 91.7300 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "tawang-monastery", name: "Tawang Monastery", city: "Tawang", state: "Arunachal Pradesh", region: "Northeast", category: "Religious", description: "Historic Buddhist monastery in the Himalayan region.", location: { latitude: 27.5861, longitude: 91.8594 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "ziro-valley", name: "Ziro Valley", city: "Ziro", state: "Arunachal Pradesh", region: "Northeast", category: "Nature", description: "Scenic valley known for landscapes and local culture.", location: { latitude: 27.5448, longitude: 93.8195 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "tsomgo-lake", name: "Tsomgo Lake", city: "Gangtok", state: "Sikkim", region: "Northeast", category: "Nature", description: "High-altitude glacial lake near Gangtok.", location: { latitude: 27.3740, longitude: 88.8720 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "gangtok", name: "Gangtok", city: "Gangtok", state: "Sikkim", region: "Northeast", category: "Hill Station", description: "Capital city of Sikkim with mountain views and monasteries.", location: { latitude: 27.3389, longitude: 88.6065 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "nathula-pass", name: "Nathula Pass", city: "Gangtok", state: "Sikkim", region: "Northeast", category: "Nature", description: "High-altitude mountain pass on the India-China border.", location: { latitude: 27.3860, longitude: 88.8300 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "dal-lake", name: "Dal Lake", city: "Srinagar", state: "Jammu and Kashmir", region: "North", category: "Nature", description: "Famous lake surrounded by mountains and houseboats.", location: { latitude: 34.0837, longitude: 74.7973 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "gulmarg", name: "Gulmarg", city: "Gulmarg", state: "Jammu and Kashmir", region: "North", category: "Hill Station", description: "Mountain destination known for meadows and winter activities.", location: { latitude: 34.0484, longitude: 74.3805 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "vaishno-devi", name: "Vaishno Devi", city: "Katra", state: "Jammu and Kashmir", region: "North", category: "Religious", description: "Major pilgrimage destination in the Trikuta Mountains.", location: { latitude: 33.0308, longitude: 74.9490 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "leh-palace", name: "Leh Palace", city: "Leh", state: "Ladakh", region: "North", category: "Heritage", description: "Historic royal palace overlooking Leh.", location: { latitude: 34.1656, longitude: 77.5846 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "pangong-lake", name: "Pangong Lake", city: "Leh", state: "Ladakh", region: "North", category: "Nature", description: "High-altitude lake famous for its changing blue shades.", location: { latitude: 33.7595, longitude: 78.6670 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "nubra-valley", name: "Nubra Valley", city: "Leh", state: "Ladakh", region: "North", category: "Nature", description: "High-altitude valley surrounded by dramatic mountains.", location: { latitude: 35.4700, longitude: 77.5500 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "manali", name: "Manali", city: "Manali", state: "Himachal Pradesh", region: "North", category: "Hill Station", description: "Popular Himalayan hill station surrounded by mountains.", location: { latitude: 32.2396, longitude: 77.1887 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "shimla", name: "Shimla", city: "Shimla", state: "Himachal Pradesh", region: "North", category: "Hill Station", description: "Historic hill station and former summer capital of British India.", location: { latitude: 31.1048, longitude: 77.1734 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "rohtang-pass", name: "Rohtang Pass", city: "Manali", state: "Himachal Pradesh", region: "North", category: "Nature", description: "High mountain pass with spectacular Himalayan scenery.", location: { latitude: 32.3717, longitude: 77.2490 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "rishikesh", name: "Rishikesh", city: "Rishikesh", state: "Uttarakhand", region: "North", category: "Adventure", description: "Popular destination on the Ganges known for yoga and adventure activities.", location: { latitude: 30.0869, longitude: 78.2676 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "har-ki-pauri", name: "Har Ki Pauri", city: "Haridwar", state: "Uttarakhand", region: "North", category: "Religious", description: "Famous riverside ghat on the Ganges.", location: { latitude: 29.9457, longitude: 78.1642 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "valley-of-flowers", name: "Valley of Flowers", city: "Chamoli", state: "Uttarakhand", region: "North", category: "Nature", description: "Mountain valley known for alpine flowers and landscapes.", location: { latitude: 30.7280, longitude: 79.6050 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "jim-corbett", name: "Jim Corbett National Park", city: "Ramnagar", state: "Uttarakhand", region: "North", category: "Wildlife", description: "India's famous wildlife park with forests and diverse fauna.", location: { latitude: 29.5300, longitude: 78.7747 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "mahabodhi-temple", name: "Mahabodhi Temple", city: "Bodh Gaya", state: "Bihar", region: "East", category: "Religious", description: "Major Buddhist pilgrimage site associated with enlightenment.", location: { latitude: 24.6950, longitude: 84.9910 }, accessibility: A("wheelchair", "ramps", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "nalanda", name: "Nalanda Archaeological Site", city: "Nalanda", state: "Bihar", region: "East", category: "Historical", description: "Ancient university and archaeological site.", location: { latitude: 25.1367, longitude: 85.4437 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "hundru-falls", name: "Hundru Falls", city: "Ranchi", state: "Jharkhand", region: "East", category: "Nature", description: "Scenic waterfall near Ranchi.", location: { latitude: 23.4456, longitude: 85.6010 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "diu-fort", name: "Diu Fort", city: "Diu", state: "Daman and Diu", region: "West", category: "Heritage", description: "Historic fort overlooking the Arabian Sea.", location: { latitude: 20.7144, longitude: 70.9822 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "rann-of-kutch", name: "Rann of Kutch", city: "Kutch", state: "Gujarat", region: "West", category: "Nature", description: "Vast salt desert famous for its seasonal landscapes and cultural festival.", location: { latitude: 23.7337, longitude: 69.8597 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "somnath-temple", name: "Somnath Temple", city: "Somnath", state: "Gujarat", region: "West", category: "Religious", description: "Historic temple on the Arabian Sea coast.", location: { latitude: 20.8880, longitude: 70.4010 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
+
+d({ id: "statue-of-unity", name: "Statue of Unity", city: "Kevadia", state: "Gujarat", region: "West", category: "Landmark", description: "Major monument and tourism complex near the Narmada River.", location: { latitude: 21.8380, longitude: 73.7191 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "accessibleParking", "assistanceStaff") }),
+
+d({ id: "dwarkadhish-temple", name: "Dwarkadhish Temple", city: "Dwarka", state: "Gujarat", region: "West", category: "Religious", description: "Historic Hindu temple and pilgrimage destination.", location: { latitude: 22.2376, longitude: 68.9674 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "cellular-jail", name: "Cellular Jail", city: "Port Blair", state: "Andaman and Nicobar Islands", region: "Islands", category: "Historical", description: "Historic colonial-era prison and national memorial.", location: { latitude: 11.6736, longitude: 92.7500 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "chidiya-tapu", name: "Chidiya Tapu", city: "Port Blair", state: "Andaman and Nicobar Islands", region: "Islands", category: "Nature", description: "Scenic coastal destination known for sunsets and wildlife.", location: { latitude: 11.5100, longitude: 92.6800 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "kavaratti", name: "Kavaratti", city: "Kavaratti", state: "Lakshadweep", region: "Islands", category: "Beaches", description: "Island destination known for lagoons and coral reefs.", location: { latitude: 10.5669, longitude: 72.6420 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "india-habitat-centre", name: "India Habitat Centre", city: "Delhi", state: "Delhi", region: "North", category: "Cultural", description: "Cultural and convention centre hosting exhibitions and events.", location: { latitude: 28.5895, longitude: 77.2253 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "accessibleParking") }),
+
+d({ id: "national-museum", name: "National Museum", city: "Delhi", state: "Delhi", region: "North", category: "Museum", description: "Major museum displaying Indian art, history and archaeology.", location: { latitude: 28.6118, longitude: 77.2195 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
+
+d({ id: "akshardham-delhi", name: "Akshardham", city: "Delhi", state: "Delhi", region: "North", category: "Cultural", description: "Large cultural and spiritual complex in Delhi.", location: { latitude: 28.6127, longitude: 77.2773 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
+
+d({ id: "cubbon-park", name: "Cubbon Park", city: "Bengaluru", state: "Karnataka", region: "South", category: "Nature", description: "Large green park in the heart of Bengaluru.", location: { latitude: 12.9763, longitude: 77.5929 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
+
+d({ id: "bengaluru-palace", name: "Bengaluru Palace", city: "Bengaluru", state: "Karnataka", region: "South", category: "Heritage", description: "Historic palace known for Tudor-style architecture.", location: { latitude: 13.0035, longitude: 77.5891 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "udupi-krishna-temple", name: "Udupi Sri Krishna Temple", city: "Udupi", state: "Karnataka", region: "South", category: "Religious", description: "Historic Krishna temple and pilgrimage destination.", location: { latitude: 13.3409, longitude: 74.7421 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "murudeshwar", name: "Murudeshwar Temple", city: "Murudeshwar", state: "Karnataka", region: "South", category: "Religious", description: "Coastal temple complex famous for its large Shiva statue.", location: { latitude: 14.0940, longitude: 74.4845 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+
+d({ id: "jog-falls", name: "Jog Falls", city: "Shivamogga", state: "Karnataka", region: "South", category: "Nature", description: "One of India's famous waterfalls surrounded by forested hills.", location: { latitude: 14.2290, longitude: 74.8120 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "bekal-fort", name: "Bekal Fort", city: "Kasaragod", state: "Kerala", region: "South", category: "Heritage", description: "Large coastal fort overlooking the Arabian Sea.", location: { latitude: 12.3910, longitude: 75.0310 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "athirappilly-falls", name: "Athirappilly Falls", city: "Thrissur", state: "Kerala", region: "South", category: "Nature", description: "Large waterfall surrounded by lush forest.", location: { latitude: 10.2850, longitude: 76.5690 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "coorg", name: "Coorg", city: "Madikeri", state: "Karnataka", region: "South", category: "Hill Station", description: "Scenic hill region known for coffee plantations and forests.", location: { latitude: 12.4244, longitude: 75.7382 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "munnar-tea-gardens", name: "Munnar Tea Gardens", city: "Munnar", state: "Kerala", region: "South", category: "Nature", description: "Scenic tea plantations covering the hills around Munnar.", location: { latitude: 10.0889, longitude: 77.0595 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "marine-world-kochi", name: "Marine Drive Kochi", city: "Kochi", state: "Kerala", region: "South", category: "Landmark", description: "Popular waterfront promenade in central Kochi.", location: { latitude: 9.9740, longitude: 76.2760 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
+
+d({ id: "dharamshala", name: "Dharamshala", city: "Dharamshala", state: "Himachal Pradesh", region: "North", category: "Hill Station", description: "Himalayan destination known for mountain scenery and Tibetan culture.", location: { latitude: 32.2190, longitude: 76.3234 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "amritsar-partition-museum", name: "Partition Museum", city: "Amritsar", state: "Punjab", region: "North", category: "Museum", description: "Museum documenting the history and stories surrounding Partition.", location: { latitude: 31.6339, longitude: 74.8723 }, accessibility: A("wheelchair", "ramps", "accessibleToilet", "assistanceStaff") }),
+
+d({ id: "rock-garden-chandigarh", name: "Rock Garden", city: "Chandigarh", state: "Chandigarh", region: "North", category: "Cultural", description: "Unique sculpture garden created from industrial and household waste.", location: { latitude: 30.7525, longitude: 76.8050 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "sukhna-lake", name: "Sukhna Lake", city: "Chandigarh", state: "Chandigarh", region: "North", category: "Nature", description: "Popular man-made lake and recreational area.", location: { latitude: 30.7420, longitude: 76.8173 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
+
+d({ id: "patwon-ki-haveli", name: "Patwon Ki Haveli", city: "Jaisalmer", state: "Rajasthan", region: "West", category: "Heritage", description: "Historic collection of richly decorated merchant havelis.", location: { latitude: 26.9157, longitude: 70.9160 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "pushkar-lake", name: "Pushkar Lake", city: "Pushkar", state: "Rajasthan", region: "West", category: "Religious", description: "Sacred lake surrounded by temples and ghats.", location: { latitude: 26.4897, longitude: 74.5511 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "sajjangarh-palace", name: "Sajjangarh Palace", city: "Udaipur", state: "Rajasthan", region: "West", category: "Heritage", description: "Hilltop palace offering views over Udaipur and its lakes.", location: { latitude: 24.5960, longitude: 73.6390 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "bibi-ka-maqbara", name: "Bibi Ka Maqbara", city: "Aurangabad", state: "Maharashtra", region: "West", category: "Heritage", description: "Historic marble mausoleum often associated with Mughal architecture.", location: { latitude: 19.8776, longitude: 75.3424 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "sri-venkateswara-temple", name: "Tirumala Venkateswara Temple", city: "Tirupati", state: "Andhra Pradesh", region: "South", category: "Religious", description: "Major Hindu pilgrimage destination in the Tirumala hills.", location: { latitude: 13.6833, longitude: 79.3470 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+
+d({ id: "araku-valley", name: "Araku Valley", city: "Araku", state: "Andhra Pradesh", region: "South", category: "Hill Station", description: "Scenic valley surrounded by Eastern Ghats and coffee plantations.", location: { latitude: 18.3273, longitude: 82.8732 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "belum-caves", name: "Belum Caves", city: "Kurnool", state: "Andhra Pradesh", region: "South", category: "Nature", description: "Large underground cave system with natural rock formations.", location: { latitude: 15.1028, longitude: 78.1100 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "digha-beach", name: "Digha Beach", city: "Digha", state: "West Bengal", region: "East", category: "Beaches", description: "Popular seaside destination on the Bay of Bengal.", location: { latitude: 21.6270, longitude: 87.5070 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "pelling", name: "Pelling", city: "Pelling", state: "Sikkim", region: "Northeast", category: "Hill Station", description: "Mountain destination offering views of the Himalayas.", location: { latitude: 27.2310, longitude: 88.2570 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "rumtek-monastery", name: "Rumtek Monastery", city: "Gangtok", state: "Sikkim", region: "Northeast", category: "Religious", description: "Important Buddhist monastery near Gangtok.", location: { latitude: 27.2890, longitude: 88.5610 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "loktak-lake", name: "Loktak Lake", city: "Moirang", state: "Manipur", region: "Northeast", category: "Nature", description: "Large freshwater lake famous for floating islands.", location: { latitude: 24.5500, longitude: 93.7800 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "kohima", name: "Kohima", city: "Kohima", state: "Nagaland", region: "Northeast", category: "Cultural", description: "Hill city known for Naga culture and surrounding landscapes.", location: { latitude: 25.6751, longitude: 94.1086 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "aizawl", name: "Aizawl", city: "Aizawl", state: "Mizoram", region: "Northeast", category: "Hill Station", description: "Scenic hill city and capital of Mizoram.", location: { latitude: 23.7271, longitude: 92.7176 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "agartala-palace", name: "Ujjayanta Palace", city: "Agartala", state: "Tripura", region: "Northeast", category: "Heritage", description: "Historic palace and museum in Agartala.", location: { latitude: 23.8315, longitude: 91.2868 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+
+d({ id: "pattadakal", name: "Pattadakal", city: "Pattadakal", state: "Karnataka", region: "South", category: "Heritage", description: "Historic temple complex and UNESCO World Heritage Site.", location: { latitude: 15.9486, longitude: 75.8167 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "aihole", name: "Aihole", city: "Aihole", state: "Karnataka", region: "South", category: "Heritage", description: "Historic temple town known for early Chalukyan architecture.", location: { latitude: 16.0200, longitude: 75.8800 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "badami-agastya-lake", name: "Agastya Lake", city: "Badami", state: "Karnataka", region: "South", category: "Nature", description: "Scenic lake surrounded by the historic Badami landscape.", location: { latitude: 15.9470, longitude: 75.6840 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "sri-ranganathaswamy", name: "Sri Ranganathaswamy Temple", city: "Srirangam", state: "Tamil Nadu", region: "South", category: "Religious", description: "Large historic temple complex dedicated to Lord Ranganatha.", location: { latitude: 10.8624, longitude: 78.6895 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "gingee-fort", name: "Gingee Fort", city: "Gingee", state: "Tamil Nadu", region: "South", category: "Heritage", description: "Historic hill fort complex with extensive fortifications.", location: { latitude: 12.2525, longitude: 79.4170 }, accessibility: A("assistanceStaff") }),
+
+d({ id: "mahabalipuram", name: "Mahabalipuram", city: "Mahabalipuram", state: "Tamil Nadu", region: "South", category: "Heritage", description: "Historic coastal town known for Pallava monuments.", location: { latitude: 12.6208, longitude: 80.1945 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "vijayawada-kanaka-durga", name: "Kanaka Durga Temple", city: "Vijayawada", state: "Andhra Pradesh", region: "South", category: "Religious", description: "Major temple located on Indrakeeladri Hill.", location: { latitude: 16.5150, longitude: 80.6130 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "amaravati", name: "Amaravati Stupa", city: "Amaravati", state: "Andhra Pradesh", region: "South", category: "Historical", description: "Important Buddhist archaeological site.", location: { latitude: 16.5720, longitude: 80.3570 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+
+d({ id: "hussain-sagar", name: "Hussain Sagar Lake", city: "Hyderabad", state: "Telangana", region: "South", category: "Nature", description: "Large lake and recreational landmark in Hyderabad.", location: { latitude: 17.4239, longitude: 78.4738 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
+
+d({ id: "warangal-fort", name: "Warangal Fort", city: "Warangal", state: "Telangana", region: "South", category: "Heritage", description: "Historic fort complex with impressive stone gateways.", location: { latitude: 17.9689, longitude: 79.5941 }, accessibility: A("wheelchair", "assistanceStaff") }),
+
+d({ id: "kondapalli-fort", name: "Kondapalli Fort", city: "Vijayawada", state: "Andhra Pradesh", region: "South", category: "Heritage", description: "Historic hill fort near Vijayawada.", location: { latitude: 16.6190, longitude: 80.5420 }, accessibility: A("assistanceStaff") }),
 ];
-
 export const hotels = [
-  d({
-  id: "hotel-mysuru",
-  name: "Lalitha Mahal Palace Hotel",
-  city: "Mysuru",
-  state: "Karnataka",
-  category: "Hotel",
-  price: 5000,
-  unit: "/ night",
-  description: "Heritage hotel near major attractions of Mysuru.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lalitha_Mahal_Palace_Hotel.jpg"
-  ],
-  location: { latitude: 12.2981, longitude: 76.6933 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h1", name: "Heritage Palace Inn", city: "Mysuru", state: "Karnataka", category: "Hotel", price: 3500, unit: "/ night", description: "Demo accessible hotel listing.", location: { latitude: 12.31, longitude: 76.65 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet", "stepFreeAccess", "accessibleParking") }),
+  d({ id: "h2", name: "Royal Lakeview Hotel", city: "Jaipur", state: "Rajasthan", category: "Hotel", price: 4200, unit: "/ night", description: "Demo accessible hotel listing.", location: { latitude: 26.92, longitude: 75.80 }, accessibility: A("elevator", "accessibleParking") }),
+  d({ id: "h3", name: "Marina Beach Resort", city: "Chennai", state: "Tamil Nadu", category: "Resort", price: 5200, unit: "/ night", description: "Demo accessible resort listing.", location: { latitude: 13.05, longitude: 80.27 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet", "assistanceStaff") }),
+  d({ id: "h4", name: "Taj View Stay", city: "Agra", state: "Uttar Pradesh", category: "Hotel", price: 3800, unit: "/ night", description: "Demo hotel near major attractions.", location: { latitude: 27.17, longitude: 78.04 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
+  d({ id: "h5", name: "Golden Temple Residency", city: "Amritsar", state: "Punjab", category: "Hotel", price: 3200, unit: "/ night", description: "Demo accessible hotel listing.", location: { latitude: 31.62, longitude: 74.87 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
+  d({ id: "h6", name: "Capital Comfort Hotel", city: "Delhi", state: "Delhi", category: "Hotel", price: 4500, unit: "/ night", description: "Demo accessible city hotel.", location: { latitude: 28.61, longitude: 77.21 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet", "accessibleParking") }),
+  d({ id: "h7", name: "Blue City Heritage Hotel", city: "Jodhpur", state: "Rajasthan", category: "Heritage Hotel", price: 4100, unit: "/ night", description: "Demo heritage hotel.", location: { latitude: 26.29, longitude: 73.02 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h8", name: "Desert Palace Stay", city: "Jaisalmer", state: "Rajasthan", category: "Hotel", price: 3900, unit: "/ night", description: "Demo desert accommodation.", location: { latitude: 26.91, longitude: 70.91 }, accessibility: A("wheelchair", "accessibleParking", "assistanceStaff") }),
+  d({ id: "h9", name: "Udaipur Lake Resort", city: "Udaipur", state: "Rajasthan", category: "Resort", price: 5600, unit: "/ night", description: "Demo lakeside resort.", location: { latitude: 24.58, longitude: 73.68 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet") }),
+  d({ id: "h10", name: "Varanasi Riverside Hotel", city: "Varanasi", state: "Uttar Pradesh", category: "Hotel", price: 3000, unit: "/ night", description: "Demo riverside hotel.", location: { latitude: 25.31, longitude: 83.01 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
 
-d({
-  id: "hotel-jaipur",
-  name: "Royal Lakeview Hotel",
-  city: "Jaipur",
-  state: "Rajasthan",
-  category: "Hotel",
-  price: 4500,
-  unit: "/ night",
-  description: "Heritage-style accommodation in Jaipur.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/India_-_Jaipur_-_001_-_Rambarh_Palace_Hotel_(1027431008).jpg"
-  ],
-  location: { latitude: 26.9124, longitude: 75.7873 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h11", name: "Madhya Heritage Inn", city: "Bhopal", state: "Madhya Pradesh", category: "Hotel", price: 2800, unit: "/ night", description: "Demo accessible hotel.", location: { latitude: 23.26, longitude: 77.41 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h12", name: "Khajuraho Comfort Stay", city: "Khajuraho", state: "Madhya Pradesh", category: "Hotel", price: 2600, unit: "/ night", description: "Demo tourist accommodation.", location: { latitude: 24.83, longitude: 79.92 }, accessibility: A("wheelchair", "accessibleParking") }),
+  d({ id: "h13", name: "Mumbai Gateway Hotel", city: "Mumbai", state: "Maharashtra", category: "Hotel", price: 6000, unit: "/ night", description: "Demo city hotel.", location: { latitude: 18.92, longitude: 72.83 }, accessibility: A("wheelchair", "elevator", "accessibleToilet", "accessibleParking") }),
+  d({ id: "h14", name: "Marine Drive Residency", city: "Mumbai", state: "Maharashtra", category: "Hotel", price: 5500, unit: "/ night", description: "Demo hotel near Marine Drive.", location: { latitude: 18.94, longitude: 72.82 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h15", name: "Pune Garden Hotel", city: "Pune", state: "Maharashtra", category: "Hotel", price: 3300, unit: "/ night", description: "Demo accessible accommodation.", location: { latitude: 18.52, longitude: 73.85 }, accessibility: A("wheelchair", "elevator", "accessibleParking") }),
+  d({ id: "h16", name: "Hampi Heritage Stay", city: "Hampi", state: "Karnataka", category: "Heritage Hotel", price: 2700, unit: "/ night", description: "Demo heritage accommodation.", location: { latitude: 15.33, longitude: 76.46 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h17", name: "Bengaluru City Hotel", city: "Bengaluru", state: "Karnataka", category: "Hotel", price: 3600, unit: "/ night", description: "Demo accessible city hotel.", location: { latitude: 12.97, longitude: 77.59 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet") }),
+  d({ id: "h18", name: "Coorg Hills Resort", city: "Madikeri", state: "Karnataka", category: "Resort", price: 4800, unit: "/ night", description: "Demo hill resort.", location: { latitude: 12.42, longitude: 75.74 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h19", name: "Gokarna Beach Hotel", city: "Gokarna", state: "Karnataka", category: "Resort", price: 3500, unit: "/ night", description: "Demo beach accommodation.", location: { latitude: 14.55, longitude: 74.32 }, accessibility: A("wheelchair", "stepFreeAccess") }),
+  d({ id: "h20", name: "Hyderabad Charminar Hotel", city: "Hyderabad", state: "Telangana", category: "Hotel", price: 3100, unit: "/ night", description: "Demo accessible city hotel.", location: { latitude: 17.36, longitude: 78.47 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
 
-d({
-  id: "hotel-chennai",
-  name: "The Leela Palace Chennai",
-  city: "Chennai",
-  state: "Tamil Nadu",
-  category: "Hotel",
-  price: 6500,
-  unit: "/ night",
-  description: "Luxury accommodation near the Chennai coastline.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Leela_Palace_Chennai.jpg"
-  ],
-  location: { latitude: 13.0196, longitude: 80.2737 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h21", name: "Golconda Residency", city: "Hyderabad", state: "Telangana", category: "Hotel", price: 3400, unit: "/ night", description: "Demo hotel listing.", location: { latitude: 17.38, longitude: 78.40 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
+  d({ id: "h22", name: "Kochi Waterfront Hotel", city: "Kochi", state: "Kerala", category: "Hotel", price: 4200, unit: "/ night", description: "Demo waterfront accommodation.", location: { latitude: 9.97, longitude: 76.28 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleToilet") }),
+  d({ id: "h23", name: "Munnar Tea Resort", city: "Munnar", state: "Kerala", category: "Resort", price: 5000, unit: "/ night", description: "Demo hill resort.", location: { latitude: 10.09, longitude: 77.06 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h24", name: "Alleppey Backwater Resort", city: "Alappuzha", state: "Kerala", category: "Resort", price: 4700, unit: "/ night", description: "Demo backwater accommodation.", location: { latitude: 9.50, longitude: 76.34 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h25", name: "Kovalam Beach Resort", city: "Thiruvananthapuram", state: "Kerala", category: "Resort", price: 5200, unit: "/ night", description: "Demo beach resort.", location: { latitude: 8.40, longitude: 76.98 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleToilet") }),
+  d({ id: "h26", name: "Goa Coastal Resort", city: "Panaji", state: "Goa", category: "Resort", price: 5800, unit: "/ night", description: "Demo accessible resort.", location: { latitude: 15.49, longitude: 73.83 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking") }),
+  d({ id: "h27", name: "Baga Beach Stay", city: "Baga", state: "Goa", category: "Hotel", price: 4300, unit: "/ night", description: "Demo beach hotel.", location: { latitude: 15.56, longitude: 73.75 }, accessibility: A("wheelchair", "stepFreeAccess") }),
+  d({ id: "h28", name: "Puri Beach Hotel", city: "Puri", state: "Odisha", category: "Hotel", price: 3000, unit: "/ night", description: "Demo beach hotel.", location: { latitude: 19.80, longitude: 85.82 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
+  d({ id: "h29", name: "Bhubaneswar Heritage Hotel", city: "Bhubaneswar", state: "Odisha", category: "Hotel", price: 3200, unit: "/ night", description: "Demo city accommodation.", location: { latitude: 20.27, longitude: 85.84 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
+  d({ id: "h30", name: "Kolkata Heritage Hotel", city: "Kolkata", state: "West Bengal", category: "Hotel", price: 3800, unit: "/ night", description: "Demo heritage hotel.", location: { latitude: 22.57, longitude: 88.36 }, accessibility: A("wheelchair", "ramps", "elevator") }),
 
-d({
-  id: "hotel-jodhpur",
-  name: "Umaid Bhawan Palace",
-  city: "Jodhpur",
-  state: "Rajasthan",
-  category: "Hotel",
-  price: 8000,
-  unit: "/ night",
-  description: "Historic palace accommodation in Jodhpur.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Umaid_bhawan_palace_Jodhpur.jpg"
-  ],
-  location: { latitude: 26.2838, longitude: 73.0477 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h31", name: "Darjeeling Mountain Resort", city: "Darjeeling", state: "West Bengal", category: "Resort", price: 4600, unit: "/ night", description: "Demo mountain accommodation.", location: { latitude: 27.04, longitude: 88.27 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h32", name: "Guwahati Riverside Hotel", city: "Guwahati", state: "Assam", category: "Hotel", price: 3000, unit: "/ night", description: "Demo accessible hotel.", location: { latitude: 26.14, longitude: 91.74 }, accessibility: A("wheelchair", "elevator", "accessibleParking") }),
+  d({ id: "h33", name: "Kaziranga Nature Resort", city: "Kaziranga", state: "Assam", category: "Resort", price: 4400, unit: "/ night", description: "Demo nature resort.", location: { latitude: 26.58, longitude: 93.17 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h34", name: "Shillong Hills Hotel", city: "Shillong", state: "Meghalaya", category: "Hotel", price: 3500, unit: "/ night", description: "Demo hill hotel.", location: { latitude: 25.58, longitude: 91.89 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h35", name: "Gangtok Mountain Hotel", city: "Gangtok", state: "Sikkim", category: "Hotel", price: 3900, unit: "/ night", description: "Demo mountain hotel.", location: { latitude: 27.34, longitude: 88.61 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h36", name: "Pelling Valley Resort", city: "Pelling", state: "Sikkim", category: "Resort", price: 4200, unit: "/ night", description: "Demo valley resort.", location: { latitude: 27.23, longitude: 88.26 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h37", name: "Srinagar Lake Hotel", city: "Srinagar", state: "Jammu and Kashmir", category: "Hotel", price: 4500, unit: "/ night", description: "Demo lakeside accommodation.", location: { latitude: 34.08, longitude: 74.80 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h38", name: "Gulmarg Mountain Resort", city: "Gulmarg", state: "Jammu and Kashmir", category: "Resort", price: 5500, unit: "/ night", description: "Demo mountain resort.", location: { latitude: 34.05, longitude: 74.38 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h39", name: "Leh Palace View Hotel", city: "Leh", state: "Ladakh", category: "Hotel", price: 4800, unit: "/ night", description: "Demo Ladakh hotel.", location: { latitude: 34.17, longitude: 77.58 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h40", name: "Pangong Lake Camp", city: "Leh", state: "Ladakh", category: "Camp", price: 3500, unit: "/ night", description: "Demo accessible tourism camp.", location: { latitude: 33.76, longitude: 78.67 }, accessibility: A("assistanceStaff") }),
 
-d({
-  id: "hotel-udaipur",
-  name: "Lake Palace Hotel",
-  city: "Udaipur",
-  state: "Rajasthan",
-  category: "Hotel",
-  price: 9000,
-  unit: "/ night",
-  description: "Heritage accommodation overlooking Lake Pichola.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Palace,Udaipur.jpg"
-  ],
-  location: { latitude: 24.5754, longitude: 73.6800 },
-  accessibility: A("wheelchair", "ramps", "accessibleParking")
-}),
+  d({ id: "h41", name: "Manali Valley Hotel", city: "Manali", state: "Himachal Pradesh", category: "Hotel", price: 4000, unit: "/ night", description: "Demo mountain hotel.", location: { latitude: 32.24, longitude: 77.19 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h42", name: "Shimla Mall Hotel", city: "Shimla", state: "Himachal Pradesh", category: "Hotel", price: 4200, unit: "/ night", description: "Demo hill station hotel.", location: { latitude: 31.10, longitude: 77.17 }, accessibility: A("wheelchair", "elevator", "assistanceStaff") }),
+  d({ id: "h43", name: "Dharamshala Hills Resort", city: "Dharamshala", state: "Himachal Pradesh", category: "Resort", price: 3900, unit: "/ night", description: "Demo accessible resort.", location: { latitude: 32.22, longitude: 76.32 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h44", name: "Rishikesh Riverside Hotel", city: "Rishikesh", state: "Uttarakhand", category: "Hotel", price: 3300, unit: "/ night", description: "Demo riverside hotel.", location: { latitude: 30.09, longitude: 78.27 }, accessibility: A("wheelchair", "stepFreeAccess", "accessibleParking") }),
+  d({ id: "h45", name: "Haridwar Ganga Hotel", city: "Haridwar", state: "Uttarakhand", category: "Hotel", price: 2800, unit: "/ night", description: "Demo hotel near the Ganges.", location: { latitude: 29.95, longitude: 78.16 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h46", name: "Bodh Gaya Heritage Hotel", city: "Bodh Gaya", state: "Bihar", category: "Hotel", price: 2600, unit: "/ night", description: "Demo heritage accommodation.", location: { latitude: 24.70, longitude: 84.99 }, accessibility: A("wheelchair", "ramps", "accessibleToilet") }),
+  d({ id: "h47", name: "Patna City Hotel", city: "Patna", state: "Bihar", category: "Hotel", price: 2800, unit: "/ night", description: "Demo accessible hotel.", location: { latitude: 25.59, longitude: 85.14 }, accessibility: A("wheelchair", "elevator", "accessibleParking") }),
+  d({ id: "h48", name: "Ranchi Green Resort", city: "Ranchi", state: "Jharkhand", category: "Resort", price: 3200, unit: "/ night", description: "Demo resort listing.", location: { latitude: 23.34, longitude: 85.31 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h49", name: "Kutch Desert Resort", city: "Kutch", state: "Gujarat", category: "Resort", price: 5000, unit: "/ night", description: "Demo desert resort.", location: { latitude: 23.73, longitude: 69.86 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h50", name: "Somnath Coast Hotel", city: "Somnath", state: "Gujarat", category: "Hotel", price: 3000, unit: "/ night", description: "Demo coastal hotel.", location: { latitude: 20.89, longitude: 70.40 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
 
-d({
-  id: "hotel-mumbai",
-  name: "Taj Mahal Palace",
-  city: "Mumbai",
-  state: "Maharashtra",
-  category: "Hotel",
-  price: 10000,
-  unit: "/ night",
-  description: "Historic luxury hotel near major attractions of Mumbai.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taj_Mahal_Palace,_Mumbai..jpg"
-  ],
-  location: { latitude: 18.9217, longitude: 72.8332 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h51", name: "Dwarka Pilgrim Hotel", city: "Dwarka", state: "Gujarat", category: "Hotel", price: 2800, unit: "/ night", description: "Demo accommodation.", location: { latitude: 22.24, longitude: 68.97 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h52", name: "Statue View Resort", city: "Kevadia", state: "Gujarat", category: "Resort", price: 5200, unit: "/ night", description: "Demo resort near major attractions.", location: { latitude: 21.84, longitude: 73.72 }, accessibility: A("wheelchair", "elevator", "accessibleToilet", "accessibleParking") }),
+  d({ id: "h53", name: "Tirupati Comfort Hotel", city: "Tirupati", state: "Andhra Pradesh", category: "Hotel", price: 2900, unit: "/ night", description: "Demo pilgrimage hotel.", location: { latitude: 13.63, longitude: 79.42 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h54", name: "Vijayawada Riverside Hotel", city: "Vijayawada", state: "Andhra Pradesh", category: "Hotel", price: 3000, unit: "/ night", description: "Demo city hotel.", location: { latitude: 16.51, longitude: 80.65 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
+  d({ id: "h55", name: "Araku Valley Resort", city: "Araku", state: "Andhra Pradesh", category: "Resort", price: 3600, unit: "/ night", description: "Demo hill resort.", location: { latitude: 18.33, longitude: 82.87 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h56", name: "Kanyakumari Sea View Hotel", city: "Kanyakumari", state: "Tamil Nadu", category: "Hotel", price: 3400, unit: "/ night", description: "Demo coastal hotel.", location: { latitude: 8.09, longitude: 77.54 }, accessibility: A("wheelchair", "stepFreeAccess", "elevator") }),
+  d({ id: "h57", name: "Madurai Temple Hotel", city: "Madurai", state: "Tamil Nadu", category: "Hotel", price: 3000, unit: "/ night", description: "Demo city hotel.", location: { latitude: 9.92, longitude: 78.12 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h58", name: "Ooty Hill Resort", city: "Ooty", state: "Tamil Nadu", category: "Resort", price: 4500, unit: "/ night", description: "Demo hill resort.", location: { latitude: 11.41, longitude: 76.70 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h59", name: "Kodaikanal Lake Hotel", city: "Kodaikanal", state: "Tamil Nadu", category: "Hotel", price: 3900, unit: "/ night", description: "Demo hill hotel.", location: { latitude: 10.24, longitude: 77.49 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h60", name: "Thanjavur Heritage Stay", city: "Thanjavur", state: "Tamil Nadu", category: "Heritage Hotel", price: 3100, unit: "/ night", description: "Demo heritage stay.", location: { latitude: 10.78, longitude: 79.13 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
 
-d({
-  id: "hotel-delhi",
-  name: "The Imperial Hotel",
-  city: "Delhi",
-  state: "Delhi",
-  category: "Hotel",
-  price: 7500,
-  unit: "/ night",
-  description: "Historic luxury hotel in central Delhi.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Imperial_Hotel,_Delhi.jpg"
-  ],
-  location: { latitude: 28.6289, longitude: 77.2250 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h61", name: "Puducherry French Quarter Hotel", city: "Puducherry", state: "Puducherry", category: "Hotel", price: 4200, unit: "/ night", description: "Demo accessible hotel.", location: { latitude: 11.94, longitude: 79.83 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
+  d({ id: "h62", name: "Mahabalipuram Coastal Resort", city: "Mahabalipuram", state: "Tamil Nadu", category: "Resort", price: 4800, unit: "/ night", description: "Demo coastal resort.", location: { latitude: 12.62, longitude: 80.19 }, accessibility: A("wheelchair", "ramps", "stepFreeAccess") }),
+  d({ id: "h63", name: "Udupi Temple Hotel", city: "Udupi", state: "Karnataka", category: "Hotel", price: 2700, unit: "/ night", description: "Demo pilgrimage accommodation.", location: { latitude: 13.34, longitude: 74.74 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h64", name: "Murudeshwar Coast Resort", city: "Murudeshwar", state: "Karnataka", category: "Resort", price: 3600, unit: "/ night", description: "Demo coastal resort.", location: { latitude: 14.09, longitude: 74.48 }, accessibility: A("wheelchair", "stepFreeAccess") }),
+  d({ id: "h65", name: "Shivamogga Green Hotel", city: "Shivamogga", state: "Karnataka", category: "Hotel", price: 2500, unit: "/ night", description: "Demo city hotel.", location: { latitude: 13.93, longitude: 75.57 }, accessibility: A("wheelchair", "elevator", "accessibleParking") }),
+  d({ id: "h66", name: "Mangalore Coastal Hotel", city: "Mangaluru", state: "Karnataka", category: "Hotel", price: 3300, unit: "/ night", description: "Demo coastal hotel.", location: { latitude: 12.91, longitude: 74.86 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h67", name: "Nashik Riverside Hotel", city: "Nashik", state: "Maharashtra", category: "Hotel", price: 3000, unit: "/ night", description: "Demo city hotel.", location: { latitude: 20.00, longitude: 73.79 }, accessibility: A("wheelchair", "accessibleParking") }),
+  d({ id: "h68", name: "Aurangabad Heritage Hotel", city: "Aurangabad", state: "Maharashtra", category: "Hotel", price: 3400, unit: "/ night", description: "Demo heritage accommodation.", location: { latitude: 19.88, longitude: 75.34 }, accessibility: A("wheelchair", "ramps", "elevator") }),
+  d({ id: "h69", name: "Lonavala Hills Resort", city: "Lonavala", state: "Maharashtra", category: "Resort", price: 4500, unit: "/ night", description: "Demo hill resort.", location: { latitude: 18.75, longitude: 73.41 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h70", name: "Mahabaleshwar Valley Resort", city: "Mahabaleshwar", state: "Maharashtra", category: "Resort", price: 4300, unit: "/ night", description: "Demo hill resort.", location: { latitude: 17.93, longitude: 73.65 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "hotel-bengaluru",
-  name: "Taj West End Bangalore",
-  city: "Bengaluru",
-  state: "Karnataka",
-  category: "Hotel",
-  price: 7000,
-  unit: "/ night",
-  description: "Luxury heritage-style hotel in Bengaluru.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taj_West_End_Bangalore.jpg"
-  ],
-  location: { latitude: 12.9843, longitude: 77.5851 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
+  d({ id: "h71", name: "Panchgani Hill Hotel", city: "Panchgani", state: "Maharashtra", category: "Hotel", price: 3700, unit: "/ night", description: "Demo hill hotel.", location: { latitude: 17.92, longitude: 73.80 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h72", name: "Digha Sea View Hotel", city: "Digha", state: "West Bengal", category: "Hotel", price: 2600, unit: "/ night", description: "Demo beach hotel.", location: { latitude: 21.63, longitude: 87.51 }, accessibility: A("wheelchair", "stepFreeAccess") }),
+  d({ id: "h73", name: "Siliguri City Hotel", city: "Siliguri", state: "West Bengal", category: "Hotel", price: 2800, unit: "/ night", description: "Demo city accommodation.", location: { latitude: 26.73, longitude: 88.40 }, accessibility: A("wheelchair", "elevator") }),
+  d({ id: "h74", name: "Agartala Palace Hotel", city: "Agartala", state: "Tripura", category: "Hotel", price: 2500, unit: "/ night", description: "Demo accessible hotel.", location: { latitude: 23.83, longitude: 91.29 }, accessibility: A("wheelchair", "ramps", "accessibleToilet") }),
+  d({ id: "h75", name: "Kohima Hills Hotel", city: "Kohima", state: "Nagaland", category: "Hotel", price: 2900, unit: "/ night", description: "Demo hill hotel.", location: { latitude: 25.67, longitude: 94.11 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h76", name: "Aizawl Valley Hotel", city: "Aizawl", state: "Mizoram", category: "Hotel", price: 2800, unit: "/ night", description: "Demo city hotel.", location: { latitude: 23.73, longitude: 92.72 }, accessibility: A("wheelchair", "elevator") }),
+  d({ id: "h77", name: "Imphal Heritage Hotel", city: "Imphal", state: "Manipur", category: "Hotel", price: 2700, unit: "/ night", description: "Demo hotel listing.", location: { latitude: 24.82, longitude: 93.94 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h78", name: "Port Blair Island Hotel", city: "Port Blair", state: "Andaman and Nicobar Islands", category: "Hotel", price: 4200, unit: "/ night", description: "Demo island hotel.", location: { latitude: 11.62, longitude: 92.73 }, accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking") }),
+  d({ id: "h79", name: "Kavaratti Island Resort", city: "Kavaratti", state: "Lakshadweep", category: "Resort", price: 5500, unit: "/ night", description: "Demo island resort.", location: { latitude: 10.57, longitude: 72.64 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h80", name: "Daman Coastal Hotel", city: "Daman", state: "Daman and Diu", category: "Hotel", price: 3200, unit: "/ night", description: "Demo coastal accommodation.", location: { latitude: 20.42, longitude: 72.83 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
 
-d({
-  id: "hotel-pune",
-  name: "Aga Khan Palace Stay",
-  city: "Pune",
-  state: "Maharashtra",
-  category: "Hotel",
-  price: 4500,
-  unit: "/ night",
-  description: "Comfortable accommodation near historic attractions of Pune.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aga_Khan_Palace_Pune.jpg"
-  ],
-  location: { latitude: 18.5520, longitude: 73.9010 },
-  accessibility: A("wheelchair", "ramps", "accessibleParking")
-}),
+  d({ id: "h81", name: "Amaravati City Hotel", city: "Amaravati", state: "Andhra Pradesh", category: "Hotel", price: 2700, unit: "/ night", description: "Demo city hotel.", location: { latitude: 16.57, longitude: 80.36 }, accessibility: A("wheelchair", "elevator") }),
+  d({ id: "h82", name: "Warangal Heritage Hotel", city: "Warangal", state: "Telangana", category: "Hotel", price: 2600, unit: "/ night", description: "Demo heritage accommodation.", location: { latitude: 17.97, longitude: 79.59 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h83", name: "Vijayapura Heritage Stay", city: "Vijayapura", state: "Karnataka", category: "Hotel", price: 2500, unit: "/ night", description: "Demo heritage hotel.", location: { latitude: 16.83, longitude: 75.71 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h84", name: "Badami Heritage Inn", city: "Badami", state: "Karnataka", category: "Hotel", price: 2400, unit: "/ night", description: "Demo heritage stay.", location: { latitude: 15.95, longitude: 75.68 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h85", name: "Pattadakal Heritage Stay", city: "Pattadakal", state: "Karnataka", category: "Hotel", price: 2300, unit: "/ night", description: "Demo accommodation.", location: { latitude: 15.95, longitude: 75.82 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h86", name: "Rameswaram Temple Hotel", city: "Rameswaram", state: "Tamil Nadu", category: "Hotel", price: 2800, unit: "/ night", description: "Demo pilgrimage hotel.", location: { latitude: 9.29, longitude: 79.31 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "h87", name: "Pondicherry Heritage Inn", city: "Puducherry", state: "Puducherry", category: "Heritage Hotel", price: 4000, unit: "/ night", description: "Demo heritage hotel.", location: { latitude: 11.94, longitude: 79.83 }, accessibility: A("wheelchair", "elevator", "accessibleToilet") }),
+  d({ id: "h88", name: "Varkala Cliff Resort", city: "Varkala", state: "Kerala", category: "Resort", price: 4600, unit: "/ night", description: "Demo coastal resort.", location: { latitude: 8.74, longitude: 76.72 }, accessibility: A("wheelchair", "stepFreeAccess", "assistanceStaff") }),
+  d({ id: "h89", name: "Thekkady Wildlife Resort", city: "Thekkady", state: "Kerala", category: "Resort", price: 4400, unit: "/ night", description: "Demo nature resort.", location: { latitude: 9.46, longitude: 77.24 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h90", name: "Bekal Coast Resort", city: "Kasaragod", state: "Kerala", category: "Resort", price: 4700, unit: "/ night", description: "Demo coastal resort.", location: { latitude: 12.39, longitude: 75.03 }, accessibility: A("wheelchair", "ramps") }),
 
-d({
-  id: "hotel-hampi",
-  name: "Hampi Heritage Stay",
-  city: "Hampi",
-  state: "Karnataka",
-  category: "Hotel",
-  price: 3000,
-  unit: "/ night",
-  description: "Heritage accommodation near the historic monuments of Hampi.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vittala_Temple_Hampi.jpg"
-  ],
-  location: { latitude: 15.3350, longitude: 76.4600 },
-  accessibility: A("wheelchair", "ramps", "accessibleParking")
-}),
+  d({ id: "h91", name: "Mount Abu Hill Hotel", city: "Mount Abu", state: "Rajasthan", category: "Hotel", price: 3600, unit: "/ night", description: "Demo hill station hotel.", location: { latitude: 24.59, longitude: 72.71 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h92", name: "Pushkar Lake Hotel", city: "Pushkar", state: "Rajasthan", category: "Hotel", price: 3000, unit: "/ night", description: "Demo pilgrimage hotel.", location: { latitude: 26.49, longitude: 74.55 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "h93", name: "Ranthambore Safari Resort", city: "Sawai Madhopur", state: "Rajasthan", category: "Resort", price: 5200, unit: "/ night", description: "Demo wildlife resort.", location: { latitude: 26.02, longitude: 76.50 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h94", name: "Nashik Vineyard Resort", city: "Nashik", state: "Maharashtra", category: "Resort", price: 4300, unit: "/ night", description: "Demo resort accommodation.", location: { latitude: 20.00, longitude: 73.79 }, accessibility: A("wheelchair", "ramps", "accessibleParking") }),
+  d({ id: "h95", name: "Rishikesh Ganga Resort", city: "Rishikesh", state: "Uttarakhand", category: "Resort", price: 4100, unit: "/ night", description: "Demo riverside resort.", location: { latitude: 30.09, longitude: 78.27 }, accessibility: A("wheelchair", "stepFreeAccess", "ramps") }),
+  d({ id: "h96", name: "Corbett Forest Resort", city: "Ramnagar", state: "Uttarakhand", category: "Resort", price: 4900, unit: "/ night", description: "Demo wildlife resort.", location: { latitude: 29.53, longitude: 78.77 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h97", name: "Tawang Mountain Stay", city: "Tawang", state: "Arunachal Pradesh", category: "Hotel", price: 3200, unit: "/ night", description: "Demo mountain accommodation.", location: { latitude: 27.59, longitude: 91.86 }, accessibility: A("assistanceStaff") }),
+  d({ id: "h98", name: "Ziro Valley Resort", city: "Ziro", state: "Arunachal Pradesh", category: "Resort", price: 3500, unit: "/ night", description: "Demo valley resort.", location: { latitude: 27.54, longitude: 93.82 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h99", name: "Cherrapunji Nature Resort", city: "Cherrapunji", state: "Meghalaya", category: "Resort", price: 4000, unit: "/ night", description: "Demo nature resort.", location: { latitude: 25.27, longitude: 91.73 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "h100", name: "Majuli Island Stay", city: "Majuli", state: "Assam", category: "Homestay", price: 2200, unit: "/ night", description: "Demo island accommodation.", location: { latitude: 27.00, longitude: 94.22 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "hotel-jaisalmer",
-  name: "Jaisalmer Fort Heritage Stay",
-  city: "Jaisalmer",
-  state: "Rajasthan",
-  category: "Hotel",
-  price: 3500,
-  unit: "/ night",
-  description: "Heritage accommodation close to Jaisalmer Fort.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/JaisalmerFort.jpg"
-  ],
-  location: { latitude: 26.9124, longitude: 70.9120 },
-  accessibility: A("wheelchair", "ramps")
-}),
-
-d({
-  id: "hotel-amritsar",
-  name: "Golden Temple Heritage Stay",
-  city: "Amritsar",
-  state: "Punjab",
-  category: "Hotel",
-  price: 3000,
-  unit: "/ night",
-  description: "Accommodation close to the Golden Temple and central Amritsar.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Golden_Temple_(Amritsar).jpg"
-  ],
-  location: { latitude: 31.6200, longitude: 74.8765 },
-  accessibility: A("wheelchair", "ramps", "accessibleParking")
-}),
-
-d({
-  id: "hotel-varanasi",
-  name: "Ganges View Heritage Hotel",
-  city: "Varanasi",
-  state: "Uttar Pradesh",
-  category: "Hotel",
-  price: 3500,
-  unit: "/ night",
-  description: "Hotel accommodation overlooking the Ganges Ghats.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tourist_hotel_on_Varanasi_Ghats..jpg"
-  ],
-  location: { latitude: 25.3176, longitude: 83.0100 },
-  accessibility: A("wheelchair", "ramps")
-}),
-
-d({
-  id: "hotel-hyderabad",
-  name: "Hyderabad Heritage Hotel",
-  city: "Hyderabad",
-  state: "Telangana",
-  category: "Hotel",
-  price: 4500,
-  unit: "/ night",
-  description: "Comfortable accommodation near major Hyderabad attractions.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hotel_Hyatt_Hyderabad,_at_Gachibowli_in_2023_46.jpg"
-  ],
-  location: { latitude: 17.4401, longitude: 78.3489 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
-
-d({
-  id: "hotel-kochi",
-  name: "Kochi Backwater Hotel",
-  city: "Kochi",
-  state: "Kerala",
-  category: "Hotel",
-  price: 5000,
-  unit: "/ night",
-  description: "Hotel accommodation with views of Kochi's backwaters.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Crowne_Plaza_-_Hotel_Building_-_Kochi_2026-09-03_02467.jpg"
-  ],
-  location: { latitude: 9.9312, longitude: 76.2673 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
-
-d({
-  id: "hotel-madurai",
-  name: "Madurai Heritage Stay",
-  city: "Madurai",
-  state: "Tamil Nadu",
-  category: "Hotel",
-  price: 3000,
-  unit: "/ night",
-  description: "Heritage accommodation near the historic attractions of Madurai.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meenakshi_Temple_at_Madurai_(37268735210).jpg"
-  ],
-  location: { latitude: 9.9252, longitude: 78.1198 },
-  accessibility: A("wheelchair", "ramps", "accessibleParking")
-}),
-
-d({
-  id: "hotel-hyderabad-charminar",
-  name: "Charminar City Hotel",
-  city: "Hyderabad",
-  state: "Telangana",
-  category: "Hotel",
-  price: 3200,
-  unit: "/ night",
-  description: "City accommodation close to the historic Charminar area.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charminar_in_Hyderabad,_India.jpg"
-  ],
-  location: { latitude: 17.3616, longitude: 78.4747 },
-  accessibility: A("wheelchair", "ramps")
-}),
-
-d({
-  id: "hotel-jaipur-rajmahal",
-  name: "Rajmahal Palace Hotel",
-  city: "Jaipur",
-  state: "Rajasthan",
-  category: "Hotel",
-  price: 6500,
-  unit: "/ night",
-  description: "Historic palace-style hotel in Jaipur.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Raj_Mahal_Jaipur_2019_(1).jpg"
-  ],
-  location: { latitude: 26.9048, longitude: 75.7918 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
-
-d({
-  id: "hotel-pune-amanora",
-  name: "Amanora The Fern Hotel",
-  city: "Pune",
-  state: "Maharashtra",
-  category: "Hotel",
-  price: 4200,
-  unit: "/ night",
-  description: "Modern hotel accommodation in Pune.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Amanora_The_Fern_Hotels_%26_Club_(47731).jpg"
-  ],
-  location: { latitude: 18.5179, longitude: 73.9405 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-}),
-
-d({
-  id: "hotel-mumbai-gateway",
-  name: "Gateway City Hotel",
-  city: "Mumbai",
-  state: "Maharashtra",
-  category: "Hotel",
-  price: 5500,
-  unit: "/ night",
-  description: "City accommodation near Mumbai's major tourist attractions.",
-  images: [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gateway_of_India,_Mumbai,_India.jpg"
-  ],
-  location: { latitude: 18.9219, longitude: 72.8347 },
-  accessibility: A("wheelchair", "ramps", "elevator", "accessibleParking")
-})
- ];
+];
 export const vehicles = [
-  
-  d({
-  id: "v1",
-  name: "Wheelchair Van",
-  city: "Mysuru",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Demo wheelchair-accessible van with ramp.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 12.30, longitude: 76.64 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v1", name: "Wheelchair Van", city: "Mysuru", category: "Accessible van", price: 3000, unit: "/ day", description: "Demo wheelchair-accessible van with ramp.", location: { latitude: 12.30, longitude: 76.64 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v2", name: "Accessible Cab", city: "Agra", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo cab supporting wheelchair users.", location: { latitude: 27.18, longitude: 78.01 }, accessibility: A("wheelchair") }),
+  d({ id: "v3", name: "Hydraulic Lift Bus", city: "Chennai", category: "Accessible bus", price: 9000, unit: "/ day", description: "Demo bus with hydraulic wheelchair lift.", location: { latitude: 13.08, longitude: 80.27 }, accessibility: A("wheelchair", "ramps", "elevator", "assistanceStaff") }),
+  d({ id: "v4", name: "Accessible SUV", city: "Bengaluru", category: "Accessible SUV", price: 3500, unit: "/ day", description: "Demo accessible SUV.", location: { latitude: 12.97, longitude: 77.59 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v5", name: "Mobility Support Cab", city: "Delhi", category: "Accessible cab", price: 2800, unit: "/ day", description: "Demo mobility-friendly cab.", location: { latitude: 28.61, longitude: 77.21 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v6", name: "Ramp Van", city: "Jaipur", category: "Accessible van", price: 3200, unit: "/ day", description: "Demo van with wheelchair ramp.", location: { latitude: 26.92, longitude: 75.80 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v7", name: "Accessible Mini Bus", city: "Mumbai", category: "Accessible bus", price: 7500, unit: "/ day", description: "Demo accessible mini bus.", location: { latitude: 18.94, longitude: 72.83 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v8", name: "Wheelchair Taxi", city: "Pune", category: "Accessible taxi", price: 2400, unit: "/ day", description: "Demo wheelchair taxi.", location: { latitude: 18.52, longitude: 73.85 }, accessibility: A("wheelchair") }),
+  d({ id: "v9", name: "Accessible Traveller", city: "Hyderabad", category: "Accessible van", price: 5000, unit: "/ day", description: "Demo accessible group vehicle.", location: { latitude: 17.38, longitude: 78.48 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v10", name: "Mobility Van", city: "Kochi", category: "Accessible van", price: 3300, unit: "/ day", description: "Demo mobility-friendly van.", location: { latitude: 9.97, longitude: 76.28 }, accessibility: A("wheelchair", "ramps") }),
 
-d({
-  id: "v2",
-  name: "Accessible Travel Van",
-  city: "Jaipur",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Wheelchair-accessible travel van for city transportation.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 26.92, longitude: 75.80 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v11", name: "Accessible Resort Cab", city: "Goa", category: "Accessible cab", price: 2700, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 15.49, longitude: 73.83 }, accessibility: A("wheelchair") }),
+  d({ id: "v12", name: "Beach Mobility Van", city: "Puri", category: "Accessible van", price: 3100, unit: "/ day", description: "Demo beach transfer van.", location: { latitude: 19.80, longitude: 85.82 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v13", name: "Hill Support SUV", city: "Ooty", category: "Accessible SUV", price: 3600, unit: "/ day", description: "Demo hill travel vehicle.", location: { latitude: 11.41, longitude: 76.70 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v14", name: "Munnar Accessible Van", city: "Munnar", category: "Accessible van", price: 3400, unit: "/ day", description: "Demo accessible tourism van.", location: { latitude: 10.09, longitude: 77.06 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v15", name: "Udaipur Mobility Cab", city: "Udaipur", category: "Accessible cab", price: 2600, unit: "/ day", description: "Demo mobility-friendly cab.", location: { latitude: 24.58, longitude: 73.68 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v16", name: "Jodhpur Wheelchair Van", city: "Jodhpur", category: "Accessible van", price: 3000, unit: "/ day", description: "Demo wheelchair van.", location: { latitude: 26.29, longitude: 73.02 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v17", name: "Jaisalmer Desert SUV", city: "Jaisalmer", category: "Accessible SUV", price: 4200, unit: "/ day", description: "Demo accessible desert vehicle.", location: { latitude: 26.91, longitude: 70.91 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v18", name: "Amritsar Accessible Cab", city: "Amritsar", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 31.62, longitude: 74.87 }, accessibility: A("wheelchair") }),
+  d({ id: "v19", name: "Varanasi Mobility Van", city: "Varanasi", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo accessible van.", location: { latitude: 25.31, longitude: 83.01 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v20", name: "Shimla Accessible SUV", city: "Shimla", category: "Accessible SUV", price: 4000, unit: "/ day", description: "Demo hill transport vehicle.", location: { latitude: 31.10, longitude: 77.17 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "v3",
-  name: "Wheelchair Transport Van",
-  city: "Chennai",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible van equipped for wheelchair transportation.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 13.05, longitude: 80.27 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v21", name: "Manali Wheelchair Van", city: "Manali", category: "Accessible van", price: 3800, unit: "/ day", description: "Demo mountain travel van.", location: { latitude: 32.24, longitude: 77.19 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v22", name: "Rishikesh Accessible Cab", city: "Rishikesh", category: "Accessible cab", price: 2500, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 30.09, longitude: 78.27 }, accessibility: A("wheelchair", "stepFreeAccess") }),
+  d({ id: "v23", name: "Srinagar Mobility Van", city: "Srinagar", category: "Accessible van", price: 3600, unit: "/ day", description: "Demo accessible Kashmir transport.", location: { latitude: 34.08, longitude: 74.80 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v24", name: "Leh Support SUV", city: "Leh", category: "Accessible SUV", price: 4500, unit: "/ day", description: "Demo accessible mountain SUV.", location: { latitude: 34.17, longitude: 77.58 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v25", name: "Darjeeling Accessible Van", city: "Darjeeling", category: "Accessible van", price: 3500, unit: "/ day", description: "Demo accessible hill van.", location: { latitude: 27.04, longitude: 88.27 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v26", name: "Gangtok Mobility Cab", city: "Gangtok", category: "Accessible cab", price: 2900, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 27.34, longitude: 88.61 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v27", name: "Shillong Accessible SUV", city: "Shillong", category: "Accessible SUV", price: 3300, unit: "/ day", description: "Demo accessible SUV.", location: { latitude: 25.58, longitude: 91.89 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v28", name: "Kaziranga Safari Van", city: "Kaziranga", category: "Accessible van", price: 4000, unit: "/ day", description: "Demo safari support vehicle.", location: { latitude: 26.58, longitude: 93.17 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v29", name: "Bodh Gaya Accessible Cab", city: "Bodh Gaya", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible pilgrimage cab.", location: { latitude: 24.70, longitude: 84.99 }, accessibility: A("wheelchair") }),
+  d({ id: "v30", name: "Ranchi Mobility Van", city: "Ranchi", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo accessible city van.", location: { latitude: 23.34, longitude: 85.31 }, accessibility: A("wheelchair", "ramps") }),
 
-d({
-  id: "v4",
-  name: "Accessible Tourist Van",
-  city: "Agra",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Accessible tourist van with wheelchair ramp.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 27.17, longitude: 78.04 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v31", name: "Ahmedabad Accessible Cab", city: "Ahmedabad", category: "Accessible cab", price: 2400, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 23.02, longitude: 72.57 }, accessibility: A("wheelchair") }),
+  d({ id: "v32", name: "Kutch Desert Van", city: "Kutch", category: "Accessible van", price: 3500, unit: "/ day", description: "Demo desert travel van.", location: { latitude: 23.73, longitude: 69.86 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v33", name: "Somnath Accessible Cab", city: "Somnath", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo pilgrimage cab.", location: { latitude: 20.89, longitude: 70.40 }, accessibility: A("wheelchair") }),
+  d({ id: "v34", name: "Dwarka Mobility Van", city: "Dwarka", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo accessible van.", location: { latitude: 22.24, longitude: 68.97 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v35", name: "Tirupati Accessible Cab", city: "Tirupati", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo pilgrimage transport.", location: { latitude: 13.63, longitude: 79.42 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v36", name: "Araku Valley Van", city: "Araku", category: "Accessible van", price: 3200, unit: "/ day", description: "Demo accessible valley transport.", location: { latitude: 18.33, longitude: 82.87 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v37", name: "Vijayawada Accessible SUV", city: "Vijayawada", category: "Accessible SUV", price: 3000, unit: "/ day", description: "Demo accessible SUV.", location: { latitude: 16.51, longitude: 80.65 }, accessibility: A("wheelchair") }),
+  d({ id: "v38", name: "Madurai Mobility Cab", city: "Madurai", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 9.92, longitude: 78.12 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v39", name: "Kanyakumari Accessible Van", city: "Kanyakumari", category: "Accessible van", price: 2900, unit: "/ day", description: "Demo coastal travel van.", location: { latitude: 8.09, longitude: 77.54 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v40", name: "Rameswaram Mobility Cab", city: "Rameswaram", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo pilgrimage cab.", location: { latitude: 9.29, longitude: 79.31 }, accessibility: A("wheelchair") }),
 
-d({
-  id: "v5",
-  name: "Wheelchair Taxi",
-  city: "Amritsar",
-  category: "Accessible taxi",
-  price: 2800,
-  unit: "/ day",
-  description: "Wheelchair-friendly taxi for accessible city travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 31.62, longitude: 74.87 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v41", name: "Coorg Accessible SUV", city: "Madikeri", category: "Accessible SUV", price: 3500, unit: "/ day", description: "Demo hill travel SUV.", location: { latitude: 12.42, longitude: 75.74 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v42", name: "Mangaluru Accessible Van", city: "Mangaluru", category: "Accessible van", price: 2900, unit: "/ day", description: "Demo coastal van.", location: { latitude: 12.91, longitude: 74.86 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v43", name: "Udupi Accessible Cab", city: "Udupi", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 13.34, longitude: 74.74 }, accessibility: A("wheelchair") }),
+  d({ id: "v44", name: "Murudeshwar Beach Van", city: "Murudeshwar", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo accessible beach van.", location: { latitude: 14.09, longitude: 74.48 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v45", name: "Hampi Heritage Vehicle", city: "Hampi", category: "Accessible SUV", price: 3000, unit: "/ day", description: "Demo heritage-tour vehicle.", location: { latitude: 15.33, longitude: 76.46 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v46", name: "Badami Accessible Van", city: "Badami", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo accessible heritage van.", location: { latitude: 15.95, longitude: 75.68 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v47", name: "Pattadakal Mobility Cab", city: "Pattadakal", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 15.95, longitude: 75.82 }, accessibility: A("wheelchair") }),
+  d({ id: "v48", name: "Vijayapura Accessible Van", city: "Vijayapura", category: "Accessible van", price: 2500, unit: "/ day", description: "Demo accessible van.", location: { latitude: 16.83, longitude: 75.71 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v49", name: "Shivamogga Mobility Cab", city: "Shivamogga", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 13.93, longitude: 75.57 }, accessibility: A("wheelchair") }),
+  d({ id: "v50", name: "Jog Falls Support Vehicle", city: "Shivamogga", category: "Accessible SUV", price: 3200, unit: "/ day", description: "Demo tourism vehicle.", location: { latitude: 14.23, longitude: 74.81 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "v6",
-  name: "Capital Accessible Van",
-  city: "Delhi",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Wheelchair-accessible van for Delhi sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 28.61, longitude: 77.21 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v51", name: "Pondicherry Accessible Cab", city: "Puducherry", category: "Accessible cab", price: 2400, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 11.94, longitude: 79.83 }, accessibility: A("wheelchair") }),
+  d({ id: "v52", name: "Mahabalipuram Accessible Van", city: "Mahabalipuram", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo coastal van.", location: { latitude: 12.62, longitude: 80.19 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v53", name: "Thanjavur Mobility Cab", city: "Thanjavur", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo heritage cab.", location: { latitude: 10.78, longitude: 79.13 }, accessibility: A("wheelchair") }),
+  d({ id: "v54", name: "Kodaikanal Accessible SUV", city: "Kodaikanal", category: "Accessible SUV", price: 3300, unit: "/ day", description: "Demo hill SUV.", location: { latitude: 10.24, longitude: 77.49 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v55", name: "Varkala Beach Van", city: "Varkala", category: "Accessible van", price: 2900, unit: "/ day", description: "Demo beach van.", location: { latitude: 8.74, longitude: 76.72 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v56", name: "Alleppey Accessible Van", city: "Alappuzha", category: "Accessible van", price: 3100, unit: "/ day", description: "Demo backwater transfer van.", location: { latitude: 9.50, longitude: 76.34 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v57", name: "Thekkady Mobility SUV", city: "Thekkady", category: "Accessible SUV", price: 3500, unit: "/ day", description: "Demo wildlife transport.", location: { latitude: 9.46, longitude: 77.24 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v58", name: "Kovalam Accessible Cab", city: "Kovalam", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo accessible coastal cab.", location: { latitude: 8.40, longitude: 76.98 }, accessibility: A("wheelchair") }),
+  d({ id: "v59", name: "Bekal Accessible Van", city: "Kasaragod", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo coastal transport.", location: { latitude: 12.39, longitude: 75.03 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v60", name: "Athirappilly Mobility SUV", city: "Thrissur", category: "Accessible SUV", price: 3200, unit: "/ day", description: "Demo nature-tour vehicle.", location: { latitude: 10.29, longitude: 76.57 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "v7",
-  name: "Heritage Mobility Van",
-  city: "Jodhpur",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for heritage tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 26.29, longitude: 73.02 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v61", name: "Darjeeling Wheelchair Van", city: "Darjeeling", category: "Accessible van", price: 3400, unit: "/ day", description: "Demo accessible mountain van.", location: { latitude: 27.04, longitude: 88.27 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v62", name: "Siliguri Accessible Cab", city: "Siliguri", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 26.73, longitude: 88.40 }, accessibility: A("wheelchair") }),
+  d({ id: "v63", name: "Gangtok Accessible Van", city: "Gangtok", category: "Accessible van", price: 3300, unit: "/ day", description: "Demo mountain van.", location: { latitude: 27.34, longitude: 88.61 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v64", name: "Pelling Support SUV", city: "Pelling", category: "Accessible SUV", price: 3500, unit: "/ day", description: "Demo accessible SUV.", location: { latitude: 27.23, longitude: 88.26 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v65", name: "Tawang Accessible Van", city: "Tawang", category: "Accessible van", price: 3800, unit: "/ day", description: "Demo mountain transport.", location: { latitude: 27.59, longitude: 91.86 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v66", name: "Ziro Valley Cab", city: "Ziro", category: "Accessible cab", price: 2900, unit: "/ day", description: "Demo accessible valley cab.", location: { latitude: 27.54, longitude: 93.82 }, accessibility: A("wheelchair") }),
+  d({ id: "v67", name: "Cherrapunji Accessible Van", city: "Cherrapunji", category: "Accessible van", price: 3200, unit: "/ day", description: "Demo accessible nature vehicle.", location: { latitude: 25.27, longitude: 91.73 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v68", name: "Kohima Mobility Cab", city: "Kohima", category: "Accessible cab", price: 2500, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 25.67, longitude: 94.11 }, accessibility: A("wheelchair") }),
+  d({ id: "v69", name: "Aizawl Accessible SUV", city: "Aizawl", category: "Accessible SUV", price: 3000, unit: "/ day", description: "Demo hill transport.", location: { latitude: 23.73, longitude: 92.72 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v70", name: "Agartala Accessible Van", city: "Agartala", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo accessible van.", location: { latitude: 23.83, longitude: 91.29 }, accessibility: A("wheelchair", "ramps") }),
 
-d({
-  id: "v8",
-  name: "Desert Accessible Van",
-  city: "Jaisalmer",
-  category: "Accessible van",
-  price: 3500,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for desert tours.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 26.91, longitude: 70.91 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v71", name: "Port Blair Island Van", city: "Port Blair", category: "Accessible van", price: 3500, unit: "/ day", description: "Demo island transport.", location: { latitude: 11.62, longitude: 92.73 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v72", name: "Kavaratti Mobility Cab", city: "Kavaratti", category: "Accessible cab", price: 3000, unit: "/ day", description: "Demo island transport.", location: { latitude: 10.57, longitude: 72.64 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v73", name: "Daman Accessible Cab", city: "Daman", category: "Accessible cab", price: 2300, unit: "/ day", description: "Demo coastal cab.", location: { latitude: 20.42, longitude: 72.83 }, accessibility: A("wheelchair") }),
+  d({ id: "v74", name: "Diu Accessible Van", city: "Diu", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo island transport.", location: { latitude: 20.71, longitude: 70.98 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v75", name: "Chandigarh Mobility Cab", city: "Chandigarh", category: "Accessible cab", price: 2400, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 30.74, longitude: 76.79 }, accessibility: A("wheelchair") }),
+  d({ id: "v76", name: "Haridwar Accessible Van", city: "Haridwar", category: "Accessible van", price: 2700, unit: "/ day", description: "Demo pilgrimage transport.", location: { latitude: 29.95, longitude: 78.16 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v77", name: "Bodh Gaya Mobility Van", city: "Bodh Gaya", category: "Accessible van", price: 2600, unit: "/ day", description: "Demo pilgrimage van.", location: { latitude: 24.70, longitude: 84.99 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v78", name: "Patna Accessible Cab", city: "Patna", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 25.59, longitude: 85.14 }, accessibility: A("wheelchair") }),
+  d({ id: "v79", name: "Ranchi Accessible SUV", city: "Ranchi", category: "Accessible SUV", price: 2900, unit: "/ day", description: "Demo accessible SUV.", location: { latitude: 23.34, longitude: 85.31 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v80", name: "Nashik Accessible Van", city: "Nashik", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo accessible van.", location: { latitude: 20.00, longitude: 73.79 }, accessibility: A("wheelchair", "ramps") }),
 
-d({
-  id: "v9",
-  name: "Lake City Mobility Van",
-  city: "Udaipur",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Accessible vehicle for Udaipur sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 24.58, longitude: 73.68 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v81", name: "Lonavala Mobility SUV", city: "Lonavala", category: "Accessible SUV", price: 3300, unit: "/ day", description: "Demo hill transport.", location: { latitude: 18.75, longitude: 73.41 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v82", name: "Mahabaleshwar Accessible Van", city: "Mahabaleshwar", category: "Accessible van", price: 3400, unit: "/ day", description: "Demo hill van.", location: { latitude: 17.93, longitude: 73.65 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v83", name: "Ajmer Accessible Cab", city: "Ajmer", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible cab.", location: { latitude: 26.45, longitude: 74.64 }, accessibility: A("wheelchair") }),
+  d({ id: "v84", name: "Pushkar Accessible Van", city: "Pushkar", category: "Accessible van", price: 2500, unit: "/ day", description: "Demo pilgrimage van.", location: { latitude: 26.49, longitude: 74.55 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v85", name: "Mount Abu Mobility SUV", city: "Mount Abu", category: "Accessible SUV", price: 3200, unit: "/ day", description: "Demo hill SUV.", location: { latitude: 24.59, longitude: 72.71 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v86", name: "Ranthambore Safari Van", city: "Sawai Madhopur", category: "Accessible van", price: 3600, unit: "/ day", description: "Demo safari support vehicle.", location: { latitude: 26.02, longitude: 76.50 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v87", name: "Bhopal Accessible Cab", city: "Bhopal", category: "Accessible cab", price: 2200, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 23.26, longitude: 77.41 }, accessibility: A("wheelchair") }),
+  d({ id: "v88", name: "Sanchi Accessible Van", city: "Sanchi", category: "Accessible van", price: 2500, unit: "/ day", description: "Demo heritage transport.", location: { latitude: 23.48, longitude: 77.74 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v89", name: "Khajuraho Accessible SUV", city: "Khajuraho", category: "Accessible SUV", price: 2800, unit: "/ day", description: "Demo heritage tour SUV.", location: { latitude: 24.83, longitude: 79.92 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v90", name: "Bandhavgarh Safari Van", city: "Umaria", category: "Accessible van", price: 3700, unit: "/ day", description: "Demo wildlife vehicle.", location: { latitude: 23.73, longitude: 81.03 }, accessibility: A("wheelchair", "assistanceStaff") }),
 
-d({
-  id: "v10",
-  name: "Ganga Accessible Van",
-  city: "Varanasi",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Accessible vehicle for riverside sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 25.31, longitude: 83.01 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v11",
-  name: "Bhopal Accessible Van",
-  city: "Bhopal",
-  category: "Accessible van",
-  price: 2800,
-  unit: "/ day",
-  description: "Wheelchair-accessible city travel van.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 23.26, longitude: 77.41 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v12",
-  name: "Khajuraho Mobility Van",
-  city: "Khajuraho",
-  category: "Accessible van",
-  price: 2800,
-  unit: "/ day",
-  description: "Accessible transport for heritage sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 24.83, longitude: 79.92 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v13",
-  name: "Mumbai Wheelchair Van",
-  city: "Mumbai",
-  category: "Accessible van",
-  price: 3500,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for Mumbai travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 18.92, longitude: 72.83 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v14",
-  name: "Marine Drive Accessible Taxi",
-  city: "Mumbai",
-  category: "Accessible taxi",
-  price: 2800,
-  unit: "/ day",
-  description: "Accessible taxi for Mumbai sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 18.94, longitude: 72.82 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v15",
-  name: "Pune Accessible Van",
-  city: "Pune",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for Pune.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 18.52, longitude: 73.85 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v16",
-  name: "Hampi Heritage Van",
-  city: "Hampi",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for heritage sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 15.33, longitude: 76.46 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v17",
-  name: "Bengaluru Accessible Van",
-  city: "Bengaluru",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Wheelchair-accessible city travel van.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 12.97, longitude: 77.59 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v18",
-  name: "Coorg Mobility Van",
-  city: "Madikeri",
-  category: "Accessible van",
-  price: 3100,
-  unit: "/ day",
-  description: "Accessible vehicle for hill and resort travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 12.42, longitude: 75.74 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v19",
-  name: "Gokarna Beach Van",
-  city: "Gokarna",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for coastal sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 14.55, longitude: 74.32 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v20",
-  name: "Charminar Accessible Van",
-  city: "Hyderabad",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible sightseeing vehicle for Hyderabad.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 17.36, longitude: 78.47 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v21",
-  name: "Golconda Accessible Van",
-  city: "Hyderabad",
-  category: "Accessible van",
-  price: 3100,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for heritage tours.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 17.38, longitude: 78.40 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v22",
-  name: "Kochi Waterfront Van",
-  city: "Kochi",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for Kochi sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 9.97, longitude: 76.28 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v23",
-  name: "Munnar Hill Van",
-  city: "Munnar",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Accessible travel van for hill tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 10.09, longitude: 77.06 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v24",
-  name: "Alleppey Backwater Van",
-  city: "Alappuzha",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for backwater sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 9.50, longitude: 76.34 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v25",
-  name: "Kovalam Accessible Van",
-  city: "Thiruvananthapuram",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible coastal travel vehicle.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 8.40, longitude: 76.98 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v26",
-  name: "Goa Coastal Van",
-  city: "Panaji",
-  category: "Accessible van",
-  price: 3500,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for Goa tours.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 15.49, longitude: 73.83 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v27",
-  name: "Baga Beach Accessible Van",
-  city: "Baga",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Accessible vehicle for beach tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 15.56, longitude: 73.75 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v28",
-  name: "Puri Beach Van",
-  city: "Puri",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Accessible vehicle for Puri sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 19.80, longitude: 85.82 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v29",
-  name: "Bhubaneswar Accessible Van",
-  city: "Bhubaneswar",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Accessible city sightseeing vehicle.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 20.27, longitude: 85.84 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v30",
-  name: "Kolkata Accessible Van",
-  city: "Kolkata",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Wheelchair-accessible city travel van.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 22.57, longitude: 88.36 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v31",
-  name: "Darjeeling Mountain Van",
-  city: "Darjeeling",
-  category: "Accessible van",
-  price: 3300,
-  unit: "/ day",
-  description: "Accessible vehicle for mountain sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 27.04, longitude: 88.27 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v32",
-  name: "Guwahati Riverside Van",
-  city: "Guwahati",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for city and riverside travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 26.14, longitude: 91.74 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v33",
-  name: "Kaziranga Safari Van",
-  city: "Kaziranga",
-  category: "Accessible safari van",
-  price: 3800,
-  unit: "/ day",
-  description: "Accessible vehicle for nature and wildlife tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 26.58, longitude: 93.17 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v34",
-  name: "Shillong Accessible Van",
-  city: "Shillong",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Wheelchair-accessible hill travel vehicle.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 25.58, longitude: 91.89 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v35",
-  name: "Gangtok Mountain Van",
-  city: "Gangtok",
-  category: "Accessible van",
-  price: 3400,
-  unit: "/ day",
-  description: "Accessible vehicle for mountain tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 27.34, longitude: 88.61 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v36",
-  name: "Pelling Valley Van",
-  city: "Pelling",
-  category: "Accessible van",
-  price: 3300,
-  unit: "/ day",
-  description: "Accessible travel vehicle for valley tours.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 27.23, longitude: 88.26 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v37",
-  name: "Srinagar Accessible Van",
-  city: "Srinagar",
-  category: "Accessible van",
-  price: 3400,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for Srinagar tours.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 34.08, longitude: 74.80 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v38",
-  name: "Gulmarg Mobility Van",
-  city: "Gulmarg",
-  category: "Accessible van",
-  price: 3600,
-  unit: "/ day",
-  description: "Accessible vehicle for mountain tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 34.05, longitude: 74.38 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v39",
-  name: "Leh Accessible Van",
-  city: "Leh",
-  category: "Accessible van",
-  price: 3800,
-  unit: "/ day",
-  description: "Accessible vehicle for Ladakh sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 34.17, longitude: 77.58 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v40",
-  name: "Pangong Accessible Vehicle",
-  city: "Leh",
-  category: "Accessible van",
-  price: 4000,
-  unit: "/ day",
-  description: "Accessible tourism vehicle for Pangong Lake trips.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 33.76, longitude: 78.67 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v41",
-  name: "Manali Accessible Van",
-  city: "Manali",
-  category: "Accessible van",
-  price: 3300,
-  unit: "/ day",
-  description: "Wheelchair-accessible mountain travel van.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 32.24, longitude: 77.19 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v42",
-  name: "Shimla Accessible Van",
-  city: "Shimla",
-  category: "Accessible van",
-  price: 3300,
-  unit: "/ day",
-  description: "Accessible vehicle for hill station travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 31.10, longitude: 77.17 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v43",
-  name: "Dharamshala Mobility Van",
-  city: "Dharamshala",
-  category: "Accessible van",
-  price: 3200,
-  unit: "/ day",
-  description: "Accessible vehicle for mountain sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 32.22, longitude: 76.32 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v44",
-  name: "Rishikesh Riverside Van",
-  city: "Rishikesh",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for riverside tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 30.09, longitude: 78.27 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v45",
-  name: "Haridwar Accessible Van",
-  city: "Haridwar",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for pilgrimage travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 29.95, longitude: 78.16 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v46",
-  name: "Bodh Gaya Accessible Van",
-  city: "Bodh Gaya",
-  category: "Accessible van",
-  price: 2800,
-  unit: "/ day",
-  description: "Accessible vehicle for pilgrimage sightseeing.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wheelchair_loading_system_in_van.jpg"],
-  location: { latitude: 24.70, longitude: 84.99 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v47",
-  name: "Patna Accessible Van",
-  city: "Patna",
-  category: "Accessible van",
-  price: 2900,
-  unit: "/ day",
-  description: "Accessible city transportation van.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/MV-1_Access-A-Ride.jpg"],
-  location: { latitude: 25.59, longitude: 85.14 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v48",
-  name: "Ranchi Accessible Van",
-  city: "Ranchi",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Wheelchair-accessible vehicle for Ranchi travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Behindertentransporter_mit_Rollstuhlrampe.jpg"],
-  location: { latitude: 23.34, longitude: 85.31 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v49",
-  name: "Kutch Desert Van",
-  city: "Kutch",
-  category: "Accessible van",
-  price: 3500,
-  unit: "/ day",
-  description: "Accessible vehicle for desert tourism.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/1998-2000_Chrysler_T%26C_Limited,_BraunAbility_Entervan.jpg"],
-  location: { latitude: 23.73, longitude: 69.86 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
-
-d({
-  id: "v50",
-  name: "Somnath Coastal Van",
-  city: "Somnath",
-  category: "Accessible van",
-  price: 3000,
-  unit: "/ day",
-  description: "Accessible vehicle for coastal and pilgrimage travel.",
-  images: ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Taksio_por_malkapabluloj.jpg"],
-  location: { latitude: 20.89, longitude: 70.40 },
-  accessibility: A("wheelchair", "ramps", "assistanceStaff")
-}),
+  d({ id: "v91", name: "Kanha Safari Van", city: "Mandla", category: "Accessible van", price: 3700, unit: "/ day", description: "Demo wildlife transport.", location: { latitude: 22.33, longitude: 80.61 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v92", name: "Kolkata Accessible Cab", city: "Kolkata", category: "Accessible cab", price: 2500, unit: "/ day", description: "Demo accessible city cab.", location: { latitude: 22.57, longitude: 88.36 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v93", name: "Howrah Mobility Van", city: "Kolkata", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo accessible van.", location: { latitude: 22.60, longitude: 88.26 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v94", name: "Sundarbans Support Boat", city: "Sundarbans", category: "Accessible boat", price: 4500, unit: "/ day", description: "Demo accessible tourism boat.", location: { latitude: 21.95, longitude: 88.90 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v95", name: "Chilika Accessible Boat", city: "Puri", category: "Accessible boat", price: 4000, unit: "/ day", description: "Demo accessible sightseeing boat.", location: { latitude: 19.70, longitude: 85.32 }, accessibility: A("wheelchair", "assistanceStaff") }),
+  d({ id: "v96", name: "Amritsar Wheelchair Van", city: "Amritsar", category: "Accessible van", price: 2800, unit: "/ day", description: "Demo wheelchair-accessible van.", location: { latitude: 31.62, longitude: 74.87 }, accessibility: A("wheelchair", "ramps") }),
+  d({ id: "v97", name: "Mysuru Accessible Bus", city: "Mysuru", category: "Accessible bus", price: 7000, unit: "/ day", description: "Demo accessible group bus.", location: { latitude: 12.30, longitude: 76.65 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v98", name: "Bengaluru Accessible Bus", city: "Bengaluru", category: "Accessible bus", price: 7500, unit: "/ day", description: "Demo accessible group bus.", location: { latitude: 12.97, longitude: 77.59 }, accessibility: A("wheelchair", "ramps", "assistanceStaff") }),
+  d({ id: "v99", name: "Delhi Accessible Bus", city: "Delhi", category: "Accessible bus", price: 8500, unit: "/ day", description: "Demo accessible group bus.", location: { latitude: 28.61, longitude: 77.21 }, accessibility: A("wheelchair", "ramps", "elevator", "assistanceStaff") }),
+  d({ id: "v100", name: "Mumbai Accessible Bus", city: "Mumbai", category: "Accessible bus", price: 8500, unit: "/ day", description: "Demo accessible group bus.", location: { latitude: 18.94, longitude: 72.83 }, accessibility: A("wheelchair", "ramps", "elevator", "assistanceStaff") }),
 ];
 export const guides = [
   d({ id: "g1", name: "Asha R.", city: "Mysuru", category: "Kannada, English", price: 1500, unit: "/ day", description: "Demo guide profile with wheelchair traveller experience.", location: { latitude: 12.30, longitude: 76.65 }, accessibility: A("wheelchair", "assistanceStaff", "audioAssistance") }),
